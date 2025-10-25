@@ -1,0 +1,233 @@
+/* ===== RESET E VARIÁVEIS GLOBAIS ===== */
+:root {
+    --primary-color: #26C04C;
+    --primary-dark: #396B45;
+    --secondary-color: #EB8807;
+    --accent-dark: #2D4132;
+    --accent-brown: #6B5539;
+    --accent-purple: #4E296B;
+    --light-color: #f8f9fa;
+    --dark-color: #333;
+    --text-color: #444;
+    --gray-light: #e9ecef;
+    --white: #ffffff;
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.08);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.12);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== ESTILOS GLOBAIS ===== */
+body {
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: 0;
+    scroll-behavior: smooth;
+    background-color: var(--white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ===== HEADER E NAVEGAÇÃO ===== */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 1.2rem;
+}
+
+/* ===== NAVEGAÇÃO ===== */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin-left: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--accent-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--accent-dark);
+    cursor: pointer;
+}
+
+/* ===== TIPOGRAFIA ===== */
+h1, h2, h3, h4 {
+    color: var(--accent-dark);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    font-weight: 600;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ===== SEÇÕES ===== */
+section {
+    padding: 80px 0;
+    position: relative;
+    z-index: 10;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--accent-dark);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 992px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+}
