@@ -4,47 +4,291 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva Técnica - Relevo Consultoria Ambiental</title>
-    <meta name="description" content="Reserva técnica especializada em patrimônio espeleológico. Conservação, documentação e gestão de amostras e dados com tecnologia e conformidade legal.">
-    <meta name="keywords" content="reserva técnica, espeleologia, patrimônio espeleológico, conservação, amostras, documentação, legislação ambiental">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Reserva Técnica - Relevo Consultoria Ambiental">
-    <meta property="og:description" content="Preservação, documentação e gestão do patrimônio espeleológico nacional com tecnologia e conformidade legal.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://relevoambiental.github.io/relevo-consultoria/reserva-tecnica.html">
-    
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Estilos específicos para a página de Reserva Técnica */
+        .legislation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .legislation-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .legislation-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .legislation-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 25px;
+            position: relative;
+        }
+        
+        .legislation-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .legislation-header h3 {
+            color: white;
+            margin-bottom: 0;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+        
+        .legislation-content {
+            padding: 30px;
+        }
+        
+        .legislation-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        
+        .legislation-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .legislation-item:hover {
+            background-color: var(--light-color);
+            margin: -10px;
+            padding: 10px;
+            border-radius: var(--border-radius);
+        }
+        
+        .legislation-item h4 {
+            color: var(--accent-dark);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .legislation-item p {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        .legislation-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            border: 1px solid transparent;
+        }
+        
+        .legislation-link:hover {
+            color: var(--primary-dark);
+            background-color: rgba(38, 192, 76, 0.1);
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .legislation-link i {
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .legislation-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Estilos para notícias */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .news-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .news-image {
+            height: 150px;
+            background: linear-gradient(135deg, var(--gray-light), var(--border-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 30px;
+        }
+        
+        .news-date {
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .news-date::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .news-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--accent-dark);
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+        
+        .news-summary {
+            color: var(--text-color);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .news-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+        
+        .news-credits {
+            font-size: 0.85rem;
+            color: var(--text-color);
+            font-style: italic;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        /* Alternar cores de fundo para as seções */
+        .servico-section:nth-child(even) {
+            background: linear-gradient(135deg, var(--light-color), rgba(248, 249, 250, 0.8));
+        }
+        
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--border-color);
+            z-index: 9999;
+        }
+        
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .legislation-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .legislation-content,
+            .news-content {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="assets/icons/Logo_atualizada_horizontal.png" alt="Relevo Consultoria Ambiental" class="logo-img" onerror="this.style.display='none'">
-                <div class="logo-text">RELEVO CONSULTORIA AMBIENTAL</div>
+                <img src="assets/img/logo/Logo_Relevo_Verde.png" alt="Relevo Consultoria Ambiental" class="logo-img">
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            
             <nav>
-                <ul id="mainMenu">
+                <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="quem-somos.html">Quem Somos</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="reserva-tecnica.html" class="active">Reserva Técnica</a></li>
-                    <li><a href="intranet.html">Intranet</a></li>
                     <li><a href="fale-conosco.html">Contato</a></li>
+                    <li><a href="intranet.html">Intranet</a></li>
                 </ul>
             </nav>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <!-- Menu de Navegação Interna -->
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress"></div>
+    </div>
+
+    <!-- Menu de Navegação da Reserva Técnica -->
     <nav class="servicos-nav">
         <div class="container">
             <div class="servicos-nav-container">
@@ -55,18 +299,19 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-reserva-tecnica" id="home">
-        <div class="hero-overlay"></div>
+    <!-- Hero Section Reserva Técnica -->
+    <section class="hero-reserva-tecnica">
         <div class="container">
-            <div class="hero-content fade-in">
+            <div class="hero-content">
                 <h1>Reserva Técnica</h1>
-                <p class="hero-subtitle">Preservação, documentação e gestão do patrimônio espeleológico nacional</p>
-                <p class="hero-description">Tecnologia e conformidade legal para conservação de amostras e dados científicos</p>
-                <a href="#sobre" class="btn btn-primary">
-                    <i class="fas fa-arrow-down"></i>
-                    Explorar Reserva
-                </a>
+                <p class="hero-subtitle">Legislação e Informação Estratégica em Espeleologia</p>
+                <p class="hero-description">Seu ponto de referência para compreender o cenário da espeleologia no Brasil e no mundo.</p>
+                <div class="hero-buttons">
+                    <a href="#sobre" class="btn btn-primary">
+                        <i class="fas fa-arrow-down"></i>
+                        Explorar Reserva
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -74,121 +319,158 @@
     <!-- Sobre a Reserva Técnica -->
     <section id="sobre" class="servico-section">
         <div class="container">
-            <div class="servico-header fade-in">
+            <div class="servico-header">
                 <div class="servico-icon">
-                    <img src="assets/icons/reservatecnica.png" alt="Reserva Técnica" loading="lazy">
+                    <img src="assets/img/icons/reservatecnica.png" alt="Reserva Técnica">
                 </div>
                 <div>
-                    <h2>Sobre a Reserva Técnica</h2>
-                    <p>A Reserva Técnica da Relevo é um espaço dedicado à conservação, estudo e gestão de materiais e informações relacionadas ao patrimônio espeleológico brasileiro.</p>
-                    <p>Atuamos como guardiões de um acervo técnico-científico que inclui amostras, dados de campo, relatórios e documentação especializada, contribuindo para a preservação e o avanço do conhecimento espeleológico nacional.</p>
-                </div>
-            </div>
-
-            <div class="grid-3 mt-3 fade-in" data-animate-children="true">
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="feature-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>Gestão de Dados</h3>
-                        <p>Sistema integrado de catalogação e armazenamento de informações espeleológicas com backup seguro e acesso controlado.</p>
-                    </div>
-                </div>
-                
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="feature-icon">
-                            <i class="fas fa-vial"></i>
-                        </div>
-                        <h3>Conservação de Amostras</h3>
-                        <p>Condições controladas de temperatura e umidade para preservação de amostras geológicas e biológicas.</p>
-                    </div>
-                </div>
-                
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Conformidade Legal</h3>
-                        <p>Total adequação às normas do CECAV e demais órgãos ambientais competentes.</p>
-                    </div>
+                    <h2><i class="fas fa-archive"></i> Sobre a Reserva Técnica</h2>
+                    <p>A seção Reserva Técnica é o seu ponto de referência para compreender o cenário da espeleologia no Brasil e no mundo.</p>
+                    <p>Diferente de um acervo estático, este espaço é dedicado ao registro e organização das informações mais relevantes do setor.</p>
+                    <p>Aqui você encontrará:</p>
+                    <ul class="servico-lista">
+                        <li><i class="fas fa-check"></i> <strong>Legislação Espeleológica:</strong> Análise e registro das normas ambientais e de licenciamento nas esferas federal e estadual. Cobrimos decretos, resoluções e regulamentos que moldam a pesquisa, a gestão e a proteção do patrimônio espeleológico.</li>
+                        <li><i class="fas fa-check"></i> <strong>Panorama Nacional e Global:</strong> Notícias e dados relevantes sobre o campo da espeleologia, incluindo tecnologias aplicadas à exploração e monitoramento de cavidades, descobertas científicas e mapeamentos, e acontecimentos que impactam o futuro da área.</li>
+                    </ul>
+                    <p>Nosso objetivo é fornecer um recurso claro e organizado para que você possa atuar com conhecimento e segurança. Seja para sua pesquisa, seu empreendimento ou sua atuação profissional, esta é a sua fonte de informação estratégica.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Legislação Aplicável -->
-    <section id="legislacao" class="servico-section section-light">
+    <section id="legislacao" class="servico-section">
         <div class="container">
-            <div class="servico-header fade-in">
+            <div class="servico-header">
                 <div class="servico-icon">
-                    <img src="assets/icons/legislacaoEspeleo.png" alt="Legislação" loading="lazy">
+                    <img src="assets/img/icons/legislacaoEspeleo.png" alt="Legislação">
                 </div>
                 <div>
-                    <h2>Legislação Sobre Patrimônio Espeleológico</h2>
-                    <p>A gestão da Reserva Técnica segue rigorosamente a legislação brasileira pertinente, especialmente as normas relacionadas ao patrimônio espeleológico e ao licenciamento ambiental.</p>
+                    <h2><i class="fas fa-balance-scale"></i> Legislação Sobre Patrimônio Espeleológico</h2>
+                    <p>A gestão da Reserva Técnica segue rigorosamente a legislação brasileira pertinente, especialmente as normas relacionadas ao patrimônio espeleológico e ao licenciamento ambiental. Nossa conformidade legal garante a proteção adequada dos recursos espeleológicos e o cumprimento de todas as exigências regulamentares.</p>
                 </div>
             </div>
 
-            <div class="grid-2 fade-in" data-animate-children="true">
-                <div class="card legislacao-card">
-                    <div class="card-header legislacao-header">
+            <div class="legislation-grid">
+                <div class="legislation-card">
+                    <div class="legislation-header">
                         <h3><i class="fas fa-landmark"></i> Legislação Federal</h3>
                     </div>
-                    <div class="card-content">
-                        <div class="legislacao-item">
+                    <div class="legislation-content">
+                        <div class="legislation-item">
                             <h4>Decreto nº 10.935/2022</h4>
                             <p>Dispõe sobre a proteção das cavidades naturais subterrâneas existentes no território nacional, atualizando procedimentos e critérios.</p>
-                            <a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/decreto/d10935.htm" class="legislacao-link" target="_blank" rel="noopener">
+                            <a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/decreto/d10935.htm" class="legislation-link" target="_blank">
                                 Acessar documento <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                         
-                        <div class="legislacao-item">
+                        <div class="legislation-item">
                             <h4>Decreto nº 6.640/2008</h4>
                             <p>Regulamenta a proteção do patrimônio espeleológico, estabelecendo critérios fundamentais para conservação de amostras e dados científicos.</p>
-                            <a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/decreto/d6640.htm" class="legislacao-link" target="_blank" rel="noopener">
+                            <a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/decreto/d6640.htm" class="legislation-link" target="_blank">
                                 Acessar documento <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                         
-                        <div class="legislacao-item">
-                            <h4>Lei nº 6.938/1981</h4>
-                            <p>Política Nacional do Meio Ambiente - estabelece bases para preservação, melhoria e recuperação da qualidade ambiental.</p>
-                            <a href="https://www.planalto.gov.br/ccivil_03/leis/l6938.htm" class="legislacao-link" target="_blank" rel="noopener">
+                        <div class="legislation-item">
+                            <h4>Instrução Normativa ICMBio nº 01/2017</h4>
+                            <p>Estabelece procedimentos para definição de outras formas de compensação ao impacto negativo irreversível em cavidade natural subterrânea.</p>
+                            <a href="https://www.gov.br/icmbio/pt-br/assuntos/centros-de-pesquisa/cavernas/legislacao-e-procedimentos/legislacao" class="legislation-link" target="_blank">
+                                Acessar documento <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="legislation-item">
+                            <h4>Instrução Normativa MMA nº 02/2017</h4>
+                            <p>Estabelece metodologia para classificação do grau de relevância das cavidades naturais subterrâneas, revogando IN/MMA nº 2/2009.</p>
+                            <a href="https://www.gov.br/icmbio/pt-br/assuntos/centros-de-pesquisa/cavernas/legislacao-e-procedimentos/legislacao" class="legislation-link" target="_blank">
+                                Acessar documento <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="legislation-item">
+                            <h4>Resolução CONAMA nº 347/2004</h4>
+                            <p>Dispõe sobre a proteção de cavidades naturais subterrâneas - Estabelece parâmetros técnicos para conservação.</p>
+                            <a href="https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=347" class="legislation-link" target="_blank">
                                 Acessar documento <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card legislacao-card">
-                    <div class="card-header legislacao-header">
-                        <h3><i class="fas fa-balance-scale"></i> Normas Técnicas</h3>
+                <div class="legislation-card">
+                    <div class="legislation-header">
+                        <h3><i class="fas fa-map-marked-alt"></i> Legislação Estadual</h3>
                     </div>
-                    <div class="card-content">
-                        <div class="legislacao-item">
-                            <h4>Instrução Normativa CECAV nº 2/2017</h4>
-                            <p>Estabelece procedimentos para cadastramento de cavidades naturais subterrâneas no Cadastro Nacional de Informações Espeleológicas.</p>
-                            <a href="https://www.icmbio.gov.br/cecav/images/downloads/IN_CECAV_N2_2017.pdf" class="legislacao-link" target="_blank" rel="noopener">
+                    <div class="legislation-content">
+                        <div class="legislation-item">
+                            <h4>Lei Estadual (MG) Nº17.724/1994</h4>
+                            <p>Dispõe sobre a política cultural do Estado de Minas Gerais, incluindo a proteção do patrimônio espeleológico estadual.</p>
+                            <a href="https://www.almg.gov.br/legislacao-mineira/LEI/17724/1994/" class="legislation-link" target="_blank">
                                 Acessar documento <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                         
-                        <div class="legislacao-item">
-                            <h4>NBR 15.211 - Cavidades Naturais Subterrâneas</h4>
-                            <p>Norma técnica da ABNT para terminologia, classificação e critérios técnicos para estudos em cavernas.</p>
-                            <a href="https://www.abnt.org.br" class="legislacao-link" target="_blank" rel="noopener">
-                                Ver norma <i class="fas fa-external-link-alt"></i>
+                        <div class="legislation-item">
+                            <h4>Decreto Nº 47041/2016 (MG)</h4>
+                            <p>Dispõe sobre os critérios para a compensação e a indenização dos impactos e danos causados em cavidades naturais subterrâneas.</p>
+                            <a href="https://www.lexml.gov.br/urn/urn:lex:br;minas.gerais:estado:decreto:2016-08-31;47041" class="legislation-link" target="_blank">
+                                Acessar documento <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                         
-                        <div class="legislacao-item">
+                        <div class="legislation-item">
+                            <h4>Portaria Nº 16.975/2018 (BA)</h4>
+                            <p>Diretrizes e Orientações Técnicas para elaboração de Planos de Manejo Espeleológico no Estado da Bahia.</p>
+                            <a href="https://cvta.agenciapeixevivo.org.br/wp-content/uploads/2020/02/Portaria-INEMA-16975-2018-Diretrizes-e-Orientacoes-Tecnicas-para-elaboracao-de-Planos-de-Manejo-Espeleologico.pdf" class="legislation-link" target="_blank">
+                                Acessar documento <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="legislation-item">
+                            <h4>Lei Estadual (BA) Nº10.431/2006</h4>
+                            <p>Dispõe sobre a Política de Meio Ambiente e de Proteção à Biodiversidade do Estado da Bahia, incluindo cavernas.</p>
+                            <a href="https://www.legislabahia.com.br/leis/lei-n%C2%BA-10431-de-20-de-dezembro-de-2006" class="legislation-link" target="_blank">
+                                Acessar documento <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="legislation-card">
+                    <div class="legislation-header">
+                        <h3><i class="fas fa-clipboard-list"></i> Planos de Manejo</h3>
+                    </div>
+                    <div class="legislation-content">
+                        <div class="legislation-item">
+                            <h4>Diretrizes ICMBio para PME</h4>
+                            <p>Diretrizes e Orientações Técnicas para elaboração de Planos de Manejo Espeleológico, documento oficial do ICMBio.</p>
+                            <a href="https://www.gov.br/icmbio/pt-br/assuntos/centros-de-pesquisa/cavernas/legislacao-e-procedimentos/legislacao" class="legislation-link" target="_blank">
+                                Acessar documento <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="legislation-item">
                             <h4>Resolução CONAMA nº 347/2004</h4>
-                            <p>Dispõe sobre a proteção de cavidades naturais subterrâneas e estabelece procedimentos para licenciamento.</p>
-                            <a href="http://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=380" class="legislacao-link" target="_blank" rel="noopener">
+                            <p>Menciona a necessidade de plano de manejo espeleológico para uso de cavidades em propriedades privadas.</p>
+                            <a href="https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=347" class="legislation-link" target="_blank">
+                                Acessar documento <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="legislation-item">
+                            <h4>Resolução Conjunta SEMAD/IEF/FEAM/IGAM Nº 2.420/2016</h4>
+                            <p>Estabelece diretrizes para a aplicação da compensação espeleológica no Estado de Minas Gerais.</p>
+                            <a href="https://www.jusbrasil.com.br/diarios/130103759/do-mg-21-10-2016-pg-37" class="legislation-link" target="_blank">
+                                Acessar documento <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="legislation-item">
+                            <h4>Instrução Normativa IBAMA nº 100/2006</h4>
+                            <p>Regulamenta a atividade de mergulho em caverna, estabelecendo critérios de segurança e manejo.</p>
+                            <a href="https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/IN0100-050906.PDF" class="legislation-link" target="_blank">
                                 Acessar documento <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -201,76 +483,93 @@
     <!-- Notícias Espeleológicas -->
     <section id="noticias" class="servico-section">
         <div class="container">
-            <div class="servico-header fade-in">
+            <div class="servico-header">
                 <div class="servico-icon">
-                    <img src="assets/icons/Noticias.png" alt="Notícias" loading="lazy">
+                    <img src="assets/img/icons/Noticias.png" alt="Notícias">
                 </div>
                 <div>
-                    <h2>Notícias Espeleológicas</h2>
-                    <p>Acompanhe as últimas novidades, descobertas revolucionárias e avanços tecnológicos no campo da espeleologia brasileira e internacional.</p>
+                    <h2><i class="fas fa-newspaper"></i> Notícias Espeleológicas</h2>
+                    <p>Acompanhe as últimas novidades, descobertas revolucionárias e avanços tecnológicos no campo da espeleologia brasileira e internacional. Mantenha-se atualizado com as inovações que estão transformando a ciência das cavernas.</p>
                 </div>
             </div>
 
-            <div class="grid-2 fade-in" data-animate-children="true">
-                <div class="card noticia-card">
-                    <div class="noticia-imagem">
-                        <img src="https://www.gov.br/icmbio/pt-br/assuntos/noticias/ultimas-noticias/brasil-ultrapassa-marca-de-26-mil-cavernas-registradas/@@images/4d7e296c-73f0-40d3-9594-95fe0ee44a60.jpeg" alt="Cavernas descobertas no Brasil" loading="lazy">
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://www.gov.br/icmbio/pt-br/assuntos/noticias/ultimas-noticias/brasil-ultrapassa-marca-de-26-mil-cavernas-registradas/28a89127-be4a-480d-af1d-75f23a0f13ff-site.jpg/@@images/4d7e296c-73f0-40d3-9594-95fe0ee44a60.jpeg" alt="Cavernas descobertas no Brasil">
                     </div>
-                    <div class="card-content">
-                        <div class="noticia-meta">
-                            <span class="noticia-data"><i class="fas fa-calendar-alt"></i> 15 de Maio de 2025</span>
-                            <span class="noticia-fonte">ICMBio</span>
-                        </div>
-                        <h3>Brasil ultrapassa marca histórica de 26 mil cavernas registradas</h3>
-                        <p class="noticia-resumo">O país registrou 2.668 novas cavernas desde 2022, representando um crescimento de 11,41% no patrimônio espeleológico nacional.</p>
-                        <a href="https://www.gov.br/icmbio/pt-br/assuntos/noticias/ultimas-noticias/brasil-ultrapassa-marca-de-26-mil-cavernas-registradas" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
-                            Ler Notícia <i class="fas fa-external-link-alt"></i>
-                        </a>
+                    <div class="news-content">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> 15 de Maio de 2025</div>
+                        <div class="news-title">Brasil ultrapassa marca histórica de 26 mil cavernas registradas</div>
+                        <p class="news-summary">O país registrou 2.668 novas cavernas desde 2022, representando um crescimento de 11,41% no patrimônio espeleológico nacional. Este marco consolida o Brasil como uma das principais potências mundiais em diversidade de cavernas.</p>
+                        <span class="news-tag">Descoberta Nacional</span>
+                        <div class="news-credits">Crédito: ICMBio/Agência Gov</div>
                     </div>
                 </div>
                 
-                <div class="card noticia-card">
-                    <div class="noticia-imagem">
-                        <img src="https://via.placeholder.com/400x200/396B45/FFFFFF?text=Nova+Tecnologia+Espeleológica" alt="Nova tecnologia em espeleologia" loading="lazy">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://s3.divcom.com/www.geoweeknews.com/images/2025-04-08-ATI-Hero.jpg.medium.800x800.jpg" alt="Tecnologia 3D em cavernas">
                     </div>
-                    <div class="card-content">
-                        <div class="noticia-meta">
-                            <span class="noticia-data"><i class="fas fa-calendar-alt"></i> 02 de Abril de 2025</span>
-                            <span class="noticia-fonte">SBE</span>
-                        </div>
-                        <h3>Novas tecnologias revolucionam mapeamento de cavernas no Brasil</h3>
-                        <p class="noticia-resumo">Sistemas de varredura a laser e drones especializados estão transformando a forma como exploramos e documentamos cavidades naturais.</p>
-                        <a href="#" class="btn btn-secondary btn-small">
-                            Em Breve <i class="fas fa-clock"></i>
-                        </a>
+                    <div class="news-content">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> 25 de Julho de 2025</div>
+                        <div class="news-title">Revolução tecnológica: SLAM LiDAR transforma mapeamento de cavernas</div>
+                        <p class="news-summary">Nova tecnologia de escaneamento 3D permite mapeamento preciso de cavernas complexas em tempo real, revolucionando estudos espeleológicos e criando modelos digitais detalhados para preservação e pesquisa.</p>
+                        <span class="news-tag">Inovação Tecnológica</span>
+                        <div class="news-credits">Crédito: Geo Week News</div>
                     </div>
                 </div>
-            </div>
-
-            <div class="text-center mt-3 fade-in">
-                <a href="#contato" class="btn btn-primary">
-                    <i class="fas fa-newspaper"></i>
-                    Receber Notícias
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section-dark">
-        <div class="container">
-            <div class="text-center fade-in">
-                <h2>Precisa de informações sobre nossa Reserva Técnica?</h2>
-                <p class="mb-3">Entre em contato para esclarecer dúvidas ou agendar uma visita técnica.</p>
-                <div class="hero-buttons">
-                    <a href="fale-conosco.html" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i>
-                        Solicitar Informações
-                    </a>
-                    <a href="https://wa.me/5561981523078" class="btn btn-secondary" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i>
-                        WhatsApp
-                    </a>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://speleo2025.org/assets/dist/frontend/images/logo-round.webp" alt="Congresso Internacional de Espeleologia">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> 20 de Julho de 2025</div>
+                        <div class="news-title">Brasil sedia 19º Congresso Internacional de Espeleologia em Belo Horizonte</div>
+                        <p class="news-summary">Evento histórico reúne especialistas mundiais para celebrar 60 anos da União Internacional de Espeleologia, destacando o crescimento recorde de descobertas de cavernas no Brasil e inovações científicas globais.</p>
+                        <span class="news-tag">Evento Internacional</span>
+                        <div class="news-credits">Crédito: ICS 2025/UIS</div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://www.agenciaprimaz.com.br/wp-content/uploads/2025/04/AnyConv.com__Caverna-01_11zon.webp" alt="Nova caverna descoberta">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> 30 de Abril de 2025</div>
+                        <div class="news-title">Nova caverna de 150 metros descoberta na Serra do Botafogo</div>
+                        <p class="news-summary">Descoberta em Ouro Preto revela formação geológica única em área de requerimento minerário, demonstrando a importância de estudos espeleológicos em projetos de desenvolvimento sustentável.</p>
+                        <span class="news-tag">Descoberta Regional</span>
+                        <div class="news-credits">Crédito: Agência Primaz</div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/07/WhatsApp-Image-2024-07-01-at-10.54.00-e1719842753539.jpeg?w=1200&h=900&crop=0" alt="Novas espécies em cavernas">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> 10 de Dezembro de 2024</div>
+                        <div class="news-title">Brasil lidera descoberta de novas espécies em ambientes cavernícolas</div>
+                        <p class="news-summary">Pesquisadores brasileiros desenvolvem mapa inovador que identifica áreas com maior probabilidade de abrigar novas cavernas e espécies endêmicas, impulsionando a biodiversidade subterrânea nacional.</p>
+                        <span class="news-tag">Pesquisa Científica</span>
+                        <div class="news-credits">Crédito: CNN Brasil</div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://iabs.org.br/wp-content/uploads/2025/08/TCCE_Capa_Edital-1024x724.png" alt="Edital de investimento">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> 15 de Agosto de 2025</div>
+                        <div class="news-title">Edital de R$ 800 mil impulsiona prospecção espeleológica nacional</div>
+                        <p class="news-summary">Parceria entre Cecav, SBE e IABS investe em projetos de espeleologia para descobrir novas cavernas e ampliar conhecimento sobre patrimônio subterrâneo brasileiro, com foco em áreas prioritárias.</p>
+                        <span class="news-tag">Investimento Público</span>
+                        <div class="news-credits">Crédito: IABS</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -279,41 +578,37 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-callout fade-in">
-                <h3>Precisa de mobilização rápida?</h3>
-                <p>Verifique nossa disponibilidade (standby)</p>
-                <a href="https://forms.zohopublic.com/samuelrel1/form/SimpleContactUs/formperma/bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY" class="btn btn-primary" target="_blank">
-                    <i class="fas fa-bolt"></i>
-                    Solicitar Orçamento
-                </a>
+            <div class="footer-callout">
+                <h3>Precisa de informações sobre nossa Reserva Técnica?</h3>
+                <p>Entre em contato para esclarecer dúvidas ou agendar uma visita.</p>
+                <a href="https://forms.zohopublic.com/samuelrel1/form/SimpleContactUs/formperma/bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY" target="_blank" class="btn btn-primary">Solicitar Informações</a>
             </div>
-            
             <div class="footer-content">
                 <div class="footer-column">
                     <h4>Relevo Consultoria</h4>
-                    <p>Expertise em espeleologia e licenciamento ambiental. Protegemos cavernas e viabilizamos empreendimentos sustentáveis.</p>
+                    <p>Expertise em espeleologia e licenciamento ambiental. Protegemos cavernas e viabilizamos empreendimentos.</p>
                 </div>
-                
                 <div class="footer-column">
                     <h4>Serviços</h4>
                     <ul class="footer-links">
                         <li><a href="servicos.html#licenciamento">Licenciamento Ambiental</a></li>
                         <li><a href="servicos.html#espeleologia">Estudos Espeleológicos</a></li>
                         <li><a href="servicos.html#complementares">Estudos Complementares</a></li>
-                        <li><a href="servicos.html#plano-manejo">Planos de Manejo</a></li>
+                        <li><a href="servicos.html#espeleoturismo">Espeleoturismo</a></li>
+                        <li><a href="servicos.html#educacao-ambiental">Educação Ambiental</a></li>
+                        <li><a href="servicos.html#plano-manejo">Plano de Manejo</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h4>Contato</h4>
                     <ul class="footer-links">
                         <li>
-                            <a href="https://wa.me/5561981523078" target="_blank" rel="noopener">
+                            <a href="https://wa.me/5561981523078" target="_blank">
                                 <i class="fab fa-whatsapp"></i> +55 (61) 98152-3078
                             </a>
                         </li>
                         <li>
-                            <a href="https://wa.me/5561982926996" target="_blank" rel="noopener">
+                            <a href="https://wa.me/5561982926996" target="_blank">
                                 <i class="fab fa-whatsapp"></i> +55 (61) 98292-6996
                             </a>
                         </li>
@@ -323,13 +618,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://instagram.com/relevo.eco" target="_blank" rel="noopener">
+                            <a href="https://instagram.com/relevo.eco" target="_blank">
                                 <i class="fab fa-instagram"></i> @relevo.eco
                             </a>
                         </li>
                         <li>
-                            <a href="https://linkedin.com/company/relevo-ambiental" target="_blank" rel="noopener">
-                                <i class="fab fa-linkedin"></i> Relevo Ambiental
+                            <a href="https://www.linkedin.com/company/103590367/admin/dashboard/" target="_blank">
+                                <i class="fab fa-linkedin"></i> Relevo Consultoria Ambiental
                             </a>
                         </li>
                         <li>
@@ -338,7 +633,6 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
                 <p>&copy; 2025 Relevo Consultoria Ambiental. Todos os direitos reservados.</p>
             </div>
@@ -346,5 +640,84 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+        // Scroll Progress Indicator
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+        }
+
+        window.addEventListener('scroll', updateScrollProgress);
+
+        // Animação de entrada para as seções
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas as seções
+        document.querySelectorAll('section, footer').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navegação por âncora simplificada
+        document.querySelectorAll('.servico-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // Remover classe active de todos os links
+                    document.querySelectorAll('.servico-nav-link').forEach(l => {
+                        l.classList.remove('active');
+                    });
+                    
+                    // Adicionar classe active ao link clicado
+                    this.classList.add('active');
+                    
+                    // Rolar suavemente para a seção
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Atualizar navegação ativa no scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            // Remover classe active de todos os links
+            document.querySelectorAll('.servico-nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Verificar qual seção está visível
+            document.querySelectorAll('.servico-section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    const id = section.getAttribute('id');
+                    const correspondingLink = document.querySelector(`.servico-nav-link[href="#${id}"]`);
+                    if (correspondingLink) {
+                        correspondingLink.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
