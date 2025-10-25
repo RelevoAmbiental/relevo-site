@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Relevo Consultoria Ambiental | Licenciamento e Espeleologia</title>
+    <meta name="description" content="Serviços especializados em licenciamento ambiental, estudos espeleológicos, diagnósticos complementares e planos de manejo. Expertise técnica para seu empreendimento.">
+    <meta name="keywords" content="licenciamento ambiental, estudos espeleológicos, espeleoturismo, educação ambiental, plano de manejo, consultoria ambiental">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #26C04C;
+            --primary-dark: #396B45;
+            --secondary-color: #EB8807;
+            --accent-dark: #2D4132;
+            --accent-brown: #6B5539;
+            --accent-purple: #4E296B;
+            --light-color: #f8f9fa;
+            --dark-color: #333;
+            --text-color: #444;
+            --gray-light: #e9ecef;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 0;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header e Navegação */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--accent-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--accent-dark);
+            cursor: pointer;
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-top: 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-weight: 600;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Menu de Navegação de Serviços - COMPACTO */
+        .servicos-nav {
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+        }
+        
+        .servicos-nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0 5px;
+        }
+        
+        .servico-nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            flex: 0 0 auto;
+        }
+        
+        .servico-nav-link:hover, .servico-nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Hero Section Serviços */
+        .hero-servicos {
+            position: relative;
+            height: 50vh;
+            overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC_0842.JPG');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            opacity: 1 !important;
+            transform: none !important;
+            margin-top: 70px;
+        }
+        
+        .hero-servicos-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .hero-servicos h1 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-servicos p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Seções de Serviços */
+        .servico-section {
+            scroll-margin-top: 140px;
+        }
+        
+        .servico-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray-light);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .servico-header.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .servico-icon {
+            width: 200px;
+            height: 200px;
+            margin-right: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .servico-icon:hover {
+            transform: scale(1.05);
+        }
+        
+        .servico-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .servico-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .servico-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .servico-text {
+            flex: 1;
+        }
+        
+        .servico-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .servico-image:hover {
+            transform: translateY(-5px);
+        }
+        
+        .servico-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .servico-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .servico-details.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .detail-card {
+            background: var(--light-color);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .detail-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .detail-card h4 i {
+            margin-right: 10px;
+        }
+        
+        .detail-card ul {
+            list-style-type: none;
+            flex-grow: 1;
+        }
+        
+        .detail-card li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .detail-card li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .metodologia-steps {
+            counter-reset: step-counter;
+        }
+        
+        .metodologia-steps li {
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .metodologia-steps li:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .servico-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: var(--light-color);
+            border-radius: 8px;
+            transition: transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .servico-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .servico-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* Estilo para a imagem da figura técnica */
+        .figura-tecnica {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .figura-tecnica:hover {
+            transform: scale(1.02);
+        }
+        
+        .figura-tecnica img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        /* Alternar cores de fundo para as seções */
+        .servico-section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--accent-dark);
+            color: white;
+            padding: 60px 0 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        footer.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .footer-callout {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+        
+        .footer-callout h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-links i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .servico-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .servico-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-servicos {
+                height: 40vh;
+            }
+            
+            .servico-icon {
+                width: 150px;
+                height: 150px;
+                margin-right: 20px;
+            }
+            
+            .servicos-nav {
+                top: 60px;
+            }
+            
+            .servicos-nav-container {
+                gap: 6px;
+            }
+            
+            .servico-nav-link {
+                font-size: 0.75rem;
+                padding: 5px 10px;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .servico-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .servico-icon {
+                width: 120px;
+                height: 120px;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .servicos-nav-container {
+                gap: 5px;
+            }
+            
+            .servico-nav-link {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+            
+            .servico-cta {
+                padding: 25px 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .servicos-nav-container {
+                gap: 4px;
+            }
+            
+            .servico-nav-link {
+                font-size: 0.65rem;
+                padding: 3px 6px;
+            }
+            
+            .hero-servicos {
+                margin-top: 60px;
+                height: 35vh;
+            }
+            
+            .servico-section {
+                scroll-margin-top: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header com Navegação -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <!-- Adicione sua logo aqui -->
+                <div class="logo-text">RELEVO CONSULTORIA AMBIENTAL</div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="quem-somos.html">Quem Somos</a></li>
+                    <li><a href="servicos.html" class="active">Serviços</a></li>
+                    <li><a href="reserva-tecnica.html">Reserva Técnica</a></li>
+                    <li><a href="fale-conosco.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu de Navegação de Serviços COMPACTO -->
+    <nav class="servicos-nav">
+        <div class="container">
+            <div class="servicos-nav-container">
+                <a href="#licenciamento" class="servico-nav-link">Licenciamento Ambiental</a>
+                <a href="#espeleologia" class="servico-nav-link">Estudos Espeleológicos</a>
+                <a href="#complementares" class="servico-nav-link">Estudos Complementares</a>
+                <a href="#espeleoturismo" class="servico-nav-link">Espeleoturismo</a>
+                <a href="#educacao-ambiental" class="servico-nav-link">Educação Ambiental</a>
+                <a href="#plano-manejo" class="servico-nav-link">Plano de Manejo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Serviços -->
+    <section class="hero-servicos">
+        <div class="container">
+            <div class="hero-servicos-content">
+                <h1>Nossos Serviços</h1>
+                <p>Expertise técnica especializada em licenciamento ambiental, estudos espeleológicos e diagnósticos complementares para viabilizar seu empreendimento com segurança jurídica e ambiental.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Licenciamento Ambiental -->
+    <section id="licenciamento" class="servico-section">
+        <div class="container">
+            <div class="servico-header">
+                <div class="servico-icon">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/icons/refs/heads/main/Licenciamento.png" alt="Licenciamento Ambiental">
+                </div>
+                <div>
+                    <h2>Licenciamento Ambiental</h2>
+                    <p>Atuamos em todas as fases do licenciamento — do diagnóstico preliminar até o acompanhamento de condicionantes — reduzindo riscos e garantindo conformidade com órgãos ambientais.</p>
+                </div>
+            </div>
+
+            <div class="servico-content">
+                <div class="servico-text">
+                    <h3>O que entregamos</h3>
+                    <ul>
+                        <li>EIA/RIMA (Estudo de Impacto Ambiental e Relatório de Impacto Ambiental)</li>
+                        <li>RAS (Relatório Ambiental Simplificado)</li>
+                        <li>PCA (Plano de Controle Ambiental)</li>
+                        <li>Due Diligence ambiental</li>
+                        <li>Regularização de passivos ambientais</li>
+                        <li>Suporte em audiências públicas</li>
+                    </ul>
+                </div>
+                <div class="servico-image">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/licenciamento.jpg" alt="Reunião técnica com documentos em mesa">
+                </div>
+            </div>
+
+            <div class="servico-details">
+                <div class="detail-card">
+                    <h4><i class="fas fa-cogs"></i> Metodologia</h4>
+                    <ol class="metodologia-steps">
+                        <li>Scoping e levantamento bibliográfico</li>
+                        <li>Campanha de campo</li>
+                        <li>Análises laboratoriais</li>
+                        <li>Modelagens ambientais</li>
+                        <li>Redação técnica</li>
+                        <li>Protocolo e defesa junto a órgãos</li>
+                    </ol>
+                </div>
+                
+                <div class="detail-card">
+                    <h4><i class="fas fa-file-alt"></i> Entregáveis</h4>
+                    <ul>
+                        <li>Relatório técnico completo</li>
+                        <li>Mapas temáticos e cartográficos</li>
+                        <li>RIMA (Relatório de Impacto Ambiental)</li>
+                        <li>PCA (Plano de Controle Ambiental)</li>
+                        <li>Anexos metodológicos</li>
+                        <li>Base de dados GIS</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h4><i class="fas fa-calendar-check"></i> Quando contratar</h4>
+                    <ul>
+                        <li>Planejamento de novos empreendimentos</li>
+                        <li>Expansão de atividades existentes</li>
+                        <li>Regularização de atividades irregulares</li>
+                        <li>Due diligence para aquisições</li>
+                        <li>Atendimento a condicionantes de licenças</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h4><i class="fas fa-chart-bar"></i> Figura técnica</h4>
+                    <div class="figura-tecnica">
+                        <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/SIG.png" alt="Sistema de Informação Geográfica">
+                    </div>
+                </div>
+            </div>
+
+            <div class="servico-cta">
+                <h3>Precisa de licenciamento ambiental para seu projeto?</h3>
+                <p>Garantimos conformidade legal e redução de riscos em todas as etapas do processo.</p>
+                <a href="https://forms.gle/bSLWTd8keXTqyWHk6" target="_blank" class="btn btn-primary">Solicitar Proposta de Licenciamento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estudos Espeleológicos -->
+    <section id="espeleologia" class="servico-section">
+        <div class="container">
+            <div class="servico-header">
+                <div class="servico-icon">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/icons/refs/heads/main/prospeccao_espeleol%C3%B3gica.png" alt="Estudos Espeleológicos">
+                </div>
+                <div>
+                    <h2>Estudos Espeleológicos</h2>
+                    <p>Diagnóstico espeleológico completo: prospecção, mapeamento 3D (espeleotopografia), avaliação de relevância e planos de manejo especializados.</p>
+                </div>
+            </div>
+
+            <div class="servico-content">
+                <div class="servico-text">
+                    <h3>O que entregamos</h3>
+                    <ul>
+                        <li>Levantamento topográfico de cavernas</li>
+                        <li>Cadastro de cavidades naturais</li>
+                        <li>Avaliação ecológica e arqueológica</li>
+                        <li>Monitoramento de cavernas</li>
+                        <li>Plano de manejo espeleológico</li>
+                        <li>Relatórios para licenciamento</li>
+                    </ul>
+                </div>
+                <div class="servico-image">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/Estudos.jpg" alt="Mapeamento 3D de caverna">
+                </div>
+            </div>
+
+            <div class="servico-details">
+                <div class="detail-card">
+                    <h4><i class="fas fa-cogs"></i> Metodologia</h4>
+                    <ol class="metodologia-steps">
+                        <li>Prospecção orientada por análise multicritério</li>
+                        <li>Levantamento topográfico (laser/estação total/SLAM)</li>
+                        <li>Amostragem biológica e geoquímica</li>
+                        <li>Avaliação de relevância espeleológica</li>
+                        <li>Elaboração de plano de manejo</li>
+                    </ol>
+                </div>
+                
+                <div class="detail-card">
+                    <h4><i class="fas fa-file-alt"></i> Entregáveis</h4>
+                    <ul>
+                        <li>Planta e seção de cavernas</li>
+                        <li>Modelos 3D de cavidades</li>
+                        <li>Relatório técnico espeleológico</li>
+                        <li>Pareceres para órgãos ambientais</li>
+                        <li>Cadastro no CECAV (quando aplicável)</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h4><i class="fas fa-calendar-check"></i> Quando contratar</h4>
+                    <ul>
+                        <li>Empreendimentos em áreas cársticas</li>
+                        <li>Licenciamento de mineração</li>
+                        <li>Projetos de infraestrutura linear</li>
+                        <li>Estudos para criação de UC's</li>
+                        <li>Monitoramento de cavernas impactadas</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h4><i class="fas fa-chart-bar"></i> Figura técnica</h4>
+                    <div class="figura-tecnica">
+                        <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/Vertical.jpg" alt="Técnicas verticais em espeleologia">
+                    </div>
+                </div>
+            </div>
+
+            <div class="servico-cta">
+                <h3>Precisa de estudos espeleológicos para seu empreendimento?</h3>
+                <p>Especialização em diagnóstico e manejo de cavernas com tecnologia de ponta.</p>
+                <a href="https://forms.gle/bSLWTd8keXTqyWHk6" target="_blank" class="btn btn-primary">Solicitar Diagnóstico Espeleológico</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estudos Complementares -->
+    <section id="complementares" class="servico-section">
+        <div class="container">
+            <div class="servico-header">
+                <div class="servico-icon">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/icons/refs/heads/main/Complementares.png" alt="Estudos Complementares">
+                </div>
+                <div>
+                    <h2>Estudos Complementares</h2>
+                    <p>Serviços especializados para diagnósticos ambientais completos, atendendo às exigências específicas de cada projeto e órgão licenciador.</p>
+                </div>
+            </div>
+
+            <div class="servico-content">
+                <div class="servico-text">
+                    <h3>O que entregamos</h3>
+                    <ul>
+                        <li>Levantamentos geológicos e hidrogeológicos</li>
+                        <li>Inventários de fauna e flora</li>
+                        <li>Arqueologia de sítios subterrâneos</li>
+                        <li>Programas de educação ambiental</li>
+                        <li>Planos de compensação ambiental</li>
+                        <li>Consultoria ISO 14001</li>
+                    </ul>
+                </div>
+                <div class="servico-image">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/vibracao.jpg" alt="Estudos complementares em laboratório">
+                </div>
+            </div>
+
+            <div class="servico-details">
+                <div class="detail-card">
+                    <h4><i class="fas fa-map-marked-alt"></i> Áreas de Atuação</h4>
+                    <ul>
+                        <li>Geologia e Geotecnia</li>
+                        <li>Hidrogeologia e Recursos Hídricos</li>
+                        <li>Inventário de Fauna (terrestre e aquática)</li>
+                        <li>Inventário de Flora e Fitossociologia</li>
+                        <li>Arqueologia e Patrimônio Cultural</li>
+                        <li>Educação Ambiental e Comunicação</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h4><i class="fas fa-file-alt"></i> Entregáveis</h4>
+                    <ul>
+                        <li>Relatórios técnicos especializados</li>
+                        <li>Mapas temáticos e diagnósticos</li>
+                        <li>Programas de monitoramento</li>
+                        <li>Planos de manejo específicos</li>
+                        <li>Laudos e pareceres técnicos</li>
+                        <li>Documentação para licenciamento</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h4><i class="fas fa-calendar-check"></i> Quando contratar</h4>
+                    <ul>
+                        <li>Complementação de estudos ambientais</li>
+                        <li>Atendimento a condicionantes específicas</li>
+                        <li>Due diligence ambiental</li>
+                        <li>Implantação de SGA (ISO 14001)</li>
+                        <li>Programas de compliance ambiental</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h4><i class="fas fa-chart-bar"></i> Figura técnica</h4>
+                    <div class="figura-tecnica">
+                        <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/EstudosComplementares.jpg" alt="Estudos complementares em campo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="servico-cta">
+                <h3>Precisa de estudos complementares para seu projeto?</h3>
+                <p>Equipe multidisciplinar para diagnósticos ambientais completos e especializados.</p>
+                <a href="https://forms.gle/bSLWTd8keXTqyWHk6" target="_blank" class="btn btn-primary">Agendar Consultoria Técnica</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Espeleoturismo -->
+    <section id="espeleoturismo" class="servico-section">
+        <div class="container">
+            <div class="servico-header">
+                <div class="servico-icon">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/icons/refs/heads/main/Turismo.png" alt="Espeleoturismo">
+                </div>
+                <div>
+                    <h2>Espeleoturismo</h2>
+                    <p>Desenvolvemos projetos de espeleoturismo sustentável, conciliando conservação das cavernas com geração de renda local e experiências seguras para visitantes.</p>
+                </div>
+            </div>
+
+            <div class="servico-content">
+                <div class="servico-text">
+                    <h3>O que entregamos</h3>
+                    <ul>
+                        <li>Inventário turístico das cavernas</li>
+                        <li>Planos de visitação sustentável</li>
+                        <li>Estruturação de trilhas e roteiros interpretativos</li>
+                        <li>Avaliação de capacidade
