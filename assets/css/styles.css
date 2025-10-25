@@ -562,3 +562,161 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* ===== QUEM SOMOS ESPECÍFICO ===== */
+.hero-quem-somos {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../img/quem-somos/somos.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: -80px;
+}
+
+/* MVV Cards */
+.mvv-icon {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mvv-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.valores-list {
+    text-align: left;
+}
+
+.valor-item {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.valor-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.valor-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.valor-item h4 i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Equipe */
+.equipe-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 4px solid var(--primary-color);
+}
+
+.cargo {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.formacao {
+    color: var(--text-color);
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.equipe-contato {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Especialidades */
+.especialidade-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.especialidade:hover .especialidade-icon {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.especialidade h4 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.especialidade p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    color: var(--text-color);
+}
+
+/* ===== RESPONSIVIDADE ESPECÍFICA ===== */
+@media (max-width: 768px) {
+    .hero-quem-somos {
+        height: 50vh;
+    }
+    
+    .mvv-icon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .equipe-foto {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .equipe-contato {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .equipe-contato .btn {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-quem-somos {
+        height: 40vh;
+    }
+    
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
