@@ -4,289 +4,310 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fale Conosco - Relevo Consultoria Ambiental</title>
-    <meta name="description" content="Entre em contato com a Relevo Consultoria Ambiental. Fale com nossos diretores técnicos especializados em espeleologia e licenciamento ambiental.">
-    <meta name="keywords" content="contato, consultoria ambiental, espeleologia, licenciamento, orçamento, sustentabilidade">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Fale Conosco - Relevo Consultoria Ambiental">
-    <meta property="og:description" content="Entre em contato com nossos especialistas em espeleologia e licenciamento ambiental.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://relevoambiental.github.io/relevo-consultoria/fale-conosco.html">
-    
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Estilos específicos para a página de Contato */
+        .contato-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contato-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .contato-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .contato-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .contato-info {
+            text-align: center;
+        }
+        
+        .contato-info h3 {
+            color: var(--accent-dark);
+            margin-bottom: 15px;
+        }
+        
+        .contato-info p {
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .contato-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .contato-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* Accordion para Política de Privacidade */
+        .accordion {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            margin-top: 40px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            padding: 20px 30px;
+            background: var(--light-color);
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .accordion-header:hover {
+            background: var(--gray-light);
+        }
+        
+        .accordion-header h3 {
+            margin: 0;
+            color: var(--accent-dark);
+            font-size: 1.2rem;
+        }
+        
+        .accordion-icon {
+            transition: var(--transition);
+        }
+        
+        .accordion.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .accordion.active .accordion-content {
+            padding: 30px;
+            max-height: 1000px;
+        }
+        
+        .politica-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .politica-content h4 {
+            color: var(--primary-color);
+            margin: 20px 0 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .politica-content p {
+            margin-bottom: 15px;
+        }
+        
+        .politica-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        .politica-content li {
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .contato-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .contato-card {
+                padding: 20px;
+            }
+            
+            .accordion-header {
+                padding: 15px 20px;
+            }
+            
+            .accordion.active .accordion-content {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="assets/icons/Logo_atualizada_horizontal.png" alt="Relevo Consultoria Ambiental" class="logo-img" onerror="this.style.display='none'">
-                <div class="logo-text">RELEVO CONSULTORIA AMBIENTAL</div>
+                <img src="assets/img/logo/Logo_Relevo_Verde.png" alt="Relevo Consultoria Ambiental" class="logo-img">
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            
             <nav>
-                <ul id="mainMenu">
+                <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="quem-somos.html">Quem Somos</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="reserva-tecnica.html">Reserva Técnica</a></li>
-                    <li><a href="intranet.html">Intranet</a></li>
                     <li><a href="fale-conosco.html" class="active">Contato</a></li>
+                    <li><a href="intranet.html">Intranet</a></li>
                 </ul>
             </nav>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-contato" id="home">
-        <div class="hero-overlay"></div>
+    <!-- Hero Section Contato -->
+    <section class="hero-contato">
         <div class="container">
-            <div class="hero-content fade-in">
+            <div class="hero-content">
                 <h1>Fale Conosco</h1>
-                <p class="hero-subtitle">Estamos prontos para apoiar seus projetos de sustentabilidade</p>
-                <p class="hero-description">Entre em contato com nossa equipe especializada em espeleologia e licenciamento ambiental</p>
-                <a href="#formulario" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i>
-                    Enviar Mensagem
-                </a>
+                <p class="hero-subtitle">Estamos prontos para atender suas necessidades em consultoria ambiental</p>
+                <p class="hero-description">Entre em contato para esclarecer dúvidas, solicitar orçamentos ou conhecer melhor nossos serviços.</p>
+                <div class="hero-buttons">
+                    <a href="#contato" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Entrar em Contato
+                    </a>
+                    <a href="servicos.html" class="btn btn-secondary">
+                        <i class="fas fa-clipboard-list"></i>
+                        Nossos Serviços
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Informações de Contato -->
-    <section id="informacoes">
+    <!-- Seção de Contato -->
+    <section id="contato" class="servico-section">
         <div class="container">
-            <h2 class="fade-in">Nossos Canais de Contato</h2>
-            <div class="grid-3 fade-in" data-animate-children="true">
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="contato-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
+            <h2><i class="fas fa-headset"></i> Entre em Contato</h2>
+            <p class="text-center mb-3">Escolha a forma de contato mais conveniente para você. Nossa equipe está pronta para atendê-lo.</p>
+            
+            <div class="contato-grid">
+                <div class="contato-card">
+                    <div class="contato-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contato-info">
                         <h3>WhatsApp</h3>
                         <p>Atendimento rápido e direto</p>
-                        <div class="contato-links">
-                            <a href="https://wa.me/5561981523078" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
-                                <i class="fab fa-whatsapp"></i>
-                                (61) 98152-3078
+                        <p>
+                            <a href="https://wa.me/5561981523078" class="contato-link" target="_blank">
+                                <i class="fab fa-whatsapp"></i> +55 (61) 98152-3078
                             </a>
-                            <a href="https://wa.me/5561982926996" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
-                                <i class="fab fa-whatsapp"></i>
-                                (61) 98292-6996
+                        </p>
+                        <p>
+                            <a href="https://wa.me/5561982926996" class="contato-link" target="_blank">
+                                <i class="fab fa-whatsapp"></i> +55 (61) 98292-6996
                             </a>
-                        </div>
+                        </p>
                     </div>
                 </div>
                 
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="contato-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                <div class="contato-card">
+                    <div class="contato-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contato-info">
                         <h3>E-mail</h3>
-                        <p>Resposta em até 24h úteis</p>
-                        <div class="contato-links">
-                            <a href="mailto:contato@relevo.eco.br" class="btn btn-secondary btn-small">
-                                <i class="fas fa-envelope"></i>
-                                contato@relevo.eco.br
+                        <p>Para propostas e dúvidas detalhadas</p>
+                        <p>
+                            <a href="mailto:contato@relevo.eco.br" class="contato-link">
+                                <i class="fas fa-envelope"></i> contato@relevo.eco.br
                             </a>
-                            <a href="mailto:samuel@relevo.eco.br" class="btn btn-secondary btn-small">
-                                <i class="fas fa-envelope"></i>
-                                samuel@relevo.eco.br
-                            </a>
-                        </div>
+                        </p>
                     </div>
                 </div>
                 
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="contato-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                <div class="contato-card">
+                    <div class="contato-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contato-info">
                         <h3>Localização</h3>
-                        <p>Brasília/DF - Atendimento Nacional</p>
-                        <div class="contato-info">
-                            <p><strong>Escritório Principal:</strong></p>
-                            <p>Brasília - Distrito Federal</p>
-                            <p>Atendemos em todo território nacional</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formulário de Contato -->
-    <section id="formulario" class="section-light">
-        <div class="container">
-            <div class="text-center fade-in">
-                <h2>Envie sua Mensagem</h2>
-                <p class="mb-3">Preencha o formulário abaixo e retornaremos o contato em até 24h úteis.</p>
-            </div>
-
-            <!-- ZOHO FORM EMBED -->
-            <div class="form-container fade-in">
-                <div id="zf_div_bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY"></div>
-                <script type="text/javascript">
-                (function() {
-                    try{
-                        var f = document.createElement("iframe");
-                        var ifrmSrc = 'https://forms.zohopublic.com/samuelrel1/form/SimpleContactUs/formperma/bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY?zf_rszfm=1';
-                        f.src = ifrmSrc;
-                        f.style.border = "none";
-                        f.style.width = "100%";
-                        f.style.minHeight = "1500px";
-                        f.style.transition = "all 0.5s ease";
-                        f.setAttribute("aria-label", "Formulário de Contato");
-                        var d = document.getElementById("zf_div_bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY");
-                        d.appendChild(f);
-                        window.addEventListener('message', function (){
-                            var evntData = event.data;
-                            if( evntData && evntData.constructor == String ){
-                                var zf_ifrm_data = evntData.split("|");
-                                if ( zf_ifrm_data.length >= 2 ) {
-                                    var iframe = d.getElementsByTagName("iframe")[0];
-                                    iframe.style.height = (parseInt(zf_ifrm_data[1], 10) + 50) + "px";
-                                }
-                            }
-                        }, false);
-                    }catch(e){}
-                })();
-                </script>
-
-                <div class="form-footer text-center mt-3">
-                    <p style="font-size: 0.9em;">
-                        Consulte nossa <a href="#politica-privacidade" style="color: var(--primary-color);">Política de Privacidade</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Diretores -->
-    <section id="diretores">
-        <div class="container">
-            <h2 class="fade-in">Nossos Diretores</h2>
-            <div class="grid-2 fade-in" data-animate-children="true">
-                <div class="card diretor-card">
-                    <div class="card-content text-center">
-                        <img src="assets/img/equipe/Samuel_contato.jpg" alt="Samuel Neto - Diretor Técnico" class="diretor-foto" loading="lazy">
-                        <h3>Samuel Neto</h3>
-                        <p class="diretor-cargo">Diretor Técnico</p>
-                        <p class="diretor-formacao">Geólogo, Mestre em Mapeamento Geológico</p>
-                        <p class="diretor-experiencia">Mais de 20 anos de experiência em licenciamento ambiental e professor do curso de especialização em Patrimônio Espeleológico.</p>
-                        <div class="diretor-contato">
-                            <a href="mailto:samuel@relevo.eco.br" class="btn btn-primary btn-small">
-                                <i class="fas fa-envelope"></i>
-                                E-mail
-                            </a>
-                            <a href="https://wa.me/5561981523078" class="btn btn-primary btn-small" target="_blank" rel="noopener">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp
-                            </a>
-                            <a href="https://lattes.cnpq.br/9073295982865528" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
-                                <i class="fas fa-graduation-cap"></i>
-                                Lattes
-                            </a>
-                        </div>
+                        <p>Brasília/DF</p>
+                        <p>Atendemos em todo o território nacional</p>
                     </div>
                 </div>
                 
-                <div class="card diretor-card">
-                    <div class="card-content text-center">
-                        <img src="assets/img/equipe/Tiago_contato.jpg" alt="Tiago dos Anjos - Diretor Técnico" class="diretor-foto" loading="lazy">
-                        <h3>Tiago dos Anjos</h3>
-                        <p class="diretor-cargo">Diretor Técnico</p>
-                        <p class="diretor-formacao">Especialista em Espeleologia</p>
-                        <p class="diretor-experiencia">Ampla experiência em estudos espeleológicos, mapeamento de cavernas e gestão de projetos ambientais complexos.</p>
-                        <div class="diretor-contato">
-                            <a href="mailto:tiago@relevo.eco.br" class="btn btn-primary btn-small">
-                                <i class="fas fa-envelope"></i>
-                                E-mail
-                            </a>
-                            <a href="https://wa.me/5561982926996" class="btn btn-primary btn-small" target="_blank" rel="noopener">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp
-                            </a>
-                            <a href="https://lattes.cnpq.br/930965676425305" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
-                                <i class="fas fa-graduation-cap"></i>
-                                Lattes
-                            </a>
-                        </div>
+                <div class="contato-card">
+                    <div class="contato-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="contato-info">
+                        <h3>Formulário Online</h3>
+                        <p>Solicite um orçamento personalizado</p>
+                        <a href="https://forms.zohopublic.com/samuelrel1/form/SimpleContactUs/formperma/bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY" 
+                           target="_blank" class="btn btn-primary btn-small">
+                            <i class="fas fa-external-link-alt"></i>
+                            Acessar Formulário
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Redes Sociais -->
-    <section class="section-light" id="redes-sociais">
+    <!-- Seção de Redes Sociais -->
+    <section class="section-light">
         <div class="container">
-            <div class="text-center fade-in">
-                <h2>Siga Nossas Redes</h2>
-                <p class="mb-3">Acompanhe nosso trabalho e novidades do setor ambiental</p>
-            </div>
+            <h2><i class="fas fa-share-alt"></i> Nossas Redes</h2>
+            <p class="text-center mb-3">Acompanhe nosso trabalho e fique por dentro das novidades em espeleologia e consultoria ambiental.</p>
             
-            <div class="grid-4 fade-in" data-animate-children="true">
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="rede-social-icon instagram">
-                            <i class="fab fa-instagram"></i>
-                        </div>
+            <div class="contato-grid">
+                <div class="contato-card">
+                    <div class="contato-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="contato-info">
                         <h3>Instagram</h3>
-                        <p>@relevo.eco</p>
-                        <a href="https://instagram.com/relevo.eco" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
-                            <i class="fab fa-instagram"></i>
-                            Seguir
+                        <p>Conteúdo técnico e projetos</p>
+                        <a href="https://instagram.com/relevo.eco" class="contato-link" target="_blank">
+                            <i class="fab fa-instagram"></i> @relevo.eco
                         </a>
                     </div>
                 </div>
                 
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="rede-social-icon linkedin">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
+                <div class="contato-card">
+                    <div class="contato-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contato-info">
                         <h3>LinkedIn</h3>
-                        <p>Relevo Ambiental</p>
-                        <a href="https://linkedin.com/company/relevo-ambiental" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
-                            <i class="fab fa-linkedin"></i>
-                            Conectar
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="rede-social-icon email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Newsletter</h3>
-                        <p>Notícias do setor</p>
-                        <a href="#formulario" class="btn btn-secondary btn-small">
-                            <i class="fas fa-newspaper"></i>
-                            Inscrever
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card text-center">
-                    <div class="card-content">
-                        <div class="rede-social-icon blog">
-                            <i class="fas fa-blog"></i>
-                        </div>
-                        <h3>Blog</h3>
-                        <p>Artigos técnicos</p>
-                        <a href="#blog" class="btn btn-secondary btn-small">
-                            <i class="fas fa-book-open"></i>
-                            Em Breve
+                        <p>Rede profissional e corporativa</p>
+                        <a href="https://www.linkedin.com/company/103590367/admin/dashboard/" class="contato-link" target="_blank">
+                            <i class="fab fa-linkedin"></i> Relevo Consultoria
                         </a>
                     </div>
                 </div>
@@ -295,33 +316,63 @@
     </section>
 
     <!-- Política de Privacidade -->
-    <section id="politica-privacidade">
+    <section class="section-light">
         <div class="container">
-            <div class="card fade-in">
-                <div class="card-content">
-                    <h2 class="text-center">Política de Privacidade</h2>
+            <h2><i class="fas fa-shield-alt"></i> Política de Privacidade</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header">
+                    <h3>📄 Política de Privacidade – Relevo Consultoria Ambiental</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
                     <div class="politica-content">
-                        <h3>Proteção de Dados</h3>
-                        <p>A Relevo Consultoria Ambiental está comprometida com a proteção dos dados pessoais de seus clientes e visitantes. Todas as informações coletadas através de nossos formulários são utilizadas exclusivamente para:</p>
+                        <p>A Relevo Consultoria Ambiental respeita a sua privacidade e está comprometida com a proteção dos dados pessoais de clientes, parceiros e visitantes do nosso site. Esta Política de Privacidade explica como coletamos, utilizamos, armazenamos e protegemos suas informações, em conformidade com a Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018) e demais normas aplicáveis.</p>
                         
+                        <h4>1. Coleta de Dados</h4>
+                        <p>Podemos coletar as seguintes informações pessoais:</p>
                         <ul>
-                            <li>Prestação de serviços e atendimento às solicitações</li>
-                            <li>Comunicação sobre serviços e projetos</li>
-                            <li>Melhoria contínua de nossos serviços</li>
-                            <li>Atendimento a obrigações legais</li>
+                            <li>Nome, e-mail, telefone e empresa, quando fornecidos voluntariamente em formulários de contato, inscrição em eventos ou solicitações de orçamento;</li>
+                            <li>Dados de navegação (como endereço IP, cookies e páginas acessadas), coletados automaticamente para fins estatísticos e de melhoria da experiência no site.</li>
                         </ul>
                         
-                        <h3>Seus Direitos</h3>
-                        <p>Você tem direito a:</p>
+                        <h4>2. Finalidade do Uso dos Dados</h4>
+                        <p>Os dados coletados serão utilizados para:</p>
                         <ul>
-                            <li>Acessar seus dados pessoais</li>
-                            <li>Corrigir dados incompletos ou inexatos</li>
-                            <li>Solicitar a exclusão de seus dados</li>
-                            <li>Revogar consentimentos fornecidos</li>
+                            <li>Responder solicitações de contato, orçamento ou informações sobre nossos serviços;</li>
+                            <li>Enviar comunicações institucionais, materiais técnicos ou conteúdos relacionados às nossas atividades (quando autorizado pelo titular);</li>
+                            <li>Cumprir obrigações legais ou regulatórias.</li>
+                        </ul>
+                        <p>Não utilizamos dados pessoais para fins comerciais não relacionados às atividades da Relevo, nem compartilhamos com terceiros para fins de marketing.</p>
+                        
+                        <h4>3. Compartilhamento de Dados</h4>
+                        <p>Os dados pessoais não serão vendidos ou compartilhados com terceiros, exceto:</p>
+                        <ul>
+                            <li>Quando necessário para cumprimento de obrigação legal ou regulatória;</li>
+                            <li>Quando necessário para execução de contrato ou prestação de serviços;</li>
+                            <li>Com parceiros ou fornecedores que apoiam nossas atividades, sempre sob obrigação de confidencialidade e segurança.</li>
                         </ul>
                         
-                        <h3>Contato sobre Privacidade</h3>
-                        <p>Para questões relacionadas à proteção de dados, entre em contato através do e-mail: <a href="mailto:contato@relevo.eco.br">contato@relevo.eco.br</a></p>
+                        <h4>4. Armazenamento e Segurança</h4>
+                        <p>Adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais contra acessos não autorizados, perda, alteração ou destruição. Os dados serão armazenados apenas pelo tempo necessário para cumprir as finalidades descritas nesta Política ou exigências legais.</p>
+                        
+                        <h4>5. Direitos do Titular</h4>
+                        <p>De acordo com a LGPD, você pode, a qualquer momento:</p>
+                        <ul>
+                            <li>Confirmar a existência de tratamento de seus dados;</li>
+                            <li>Acessar, corrigir ou solicitar a exclusão de seus dados pessoais;</li>
+                            <li>Revogar o consentimento previamente concedido;</li>
+                            <li>Solicitar a portabilidade dos dados, quando aplicável.</li>
+                        </ul>
+                        <p>Para exercer seus direitos, entre em contato pelo e-mail: <a href="mailto:contato@relevo.eco.br" class="contato-link">contato@relevo.eco.br</a>.</p>
+                        
+                        <h4>6. Alterações desta Política</h4>
+                        <p>Esta Política de Privacidade pode ser atualizada periodicamente, e a versão mais recente estará sempre disponível em nosso site. Recomendamos a consulta regular desta página.</p>
+                        
+                        <h4>7. Contato</h4>
+                        <p>Em caso de dúvidas ou solicitações relacionadas ao tratamento de dados pessoais, entre em contato com o Encarregado de Proteção de Dados (DPO) da Relevo Consultoria Ambiental, pelo e-mail: <a href="mailto:contato@relevo.eco.br" class="contato-link">contato@relevo.eco.br</a>.</p>
+                        
+                        <p><strong>📌 Última atualização: outubro de 2025</strong></p>
                     </div>
                 </div>
             </div>
@@ -331,41 +382,37 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-callout fade-in">
-                <h3>Precisa de mobilização rápida?</h3>
-                <p>Verifique nossa disponibilidade (standby)</p>
-                <a href="https://forms.zohopublic.com/samuelrel1/form/SimpleContactUs/formperma/bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY" class="btn btn-primary" target="_blank">
-                    <i class="fas fa-bolt"></i>
-                    Solicitar Orçamento
-                </a>
+            <div class="footer-callout">
+                <h3>Pronto para transformar seu projeto ambiental?</h3>
+                <p>Entre em contato e descubra como podemos ajudar.</p>
+                <a href="#contato" class="btn btn-primary">Solicitar Contato</a>
             </div>
-            
             <div class="footer-content">
                 <div class="footer-column">
                     <h4>Relevo Consultoria</h4>
-                    <p>Expertise em espeleologia e licenciamento ambiental. Protegemos cavernas e viabilizamos empreendimentos sustentáveis.</p>
+                    <p>Expertise em espeleologia e licenciamento ambiental. Protegemos cavernas e viabilizamos empreendimentos.</p>
                 </div>
-                
                 <div class="footer-column">
                     <h4>Serviços</h4>
                     <ul class="footer-links">
                         <li><a href="servicos.html#licenciamento">Licenciamento Ambiental</a></li>
                         <li><a href="servicos.html#espeleologia">Estudos Espeleológicos</a></li>
                         <li><a href="servicos.html#complementares">Estudos Complementares</a></li>
-                        <li><a href="servicos.html#plano-manejo">Planos de Manejo</a></li>
+                        <li><a href="servicos.html#espeleoturismo">Espeleoturismo</a></li>
+                        <li><a href="servicos.html#educacao-ambiental">Educação Ambiental</a></li>
+                        <li><a href="servicos.html#plano-manejo">Plano de Manejo</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h4>Contato</h4>
                     <ul class="footer-links">
                         <li>
-                            <a href="https://wa.me/5561981523078" target="_blank" rel="noopener">
+                            <a href="https://wa.me/5561981523078" target="_blank">
                                 <i class="fab fa-whatsapp"></i> +55 (61) 98152-3078
                             </a>
                         </li>
                         <li>
-                            <a href="https://wa.me/5561982926996" target="_blank" rel="noopener">
+                            <a href="https://wa.me/5561982926996" target="_blank">
                                 <i class="fab fa-whatsapp"></i> +55 (61) 98292-6996
                             </a>
                         </li>
@@ -375,13 +422,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://instagram.com/relevo.eco" target="_blank" rel="noopener">
+                            <a href="https://instagram.com/relevo.eco" target="_blank">
                                 <i class="fab fa-instagram"></i> @relevo.eco
                             </a>
                         </li>
                         <li>
-                            <a href="https://linkedin.com/company/relevo-ambiental" target="_blank" rel="noopener">
-                                <i class="fab fa-linkedin"></i> Relevo Ambiental
+                            <a href="https://www.linkedin.com/company/103590367/admin/dashboard/" target="_blank">
+                                <i class="fab fa-linkedin"></i> Relevo Consultoria Ambiental
                             </a>
                         </li>
                         <li>
@@ -390,7 +437,6 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
                 <p>&copy; 2025 Relevo Consultoria Ambiental. Todos os direitos reservados.</p>
             </div>
@@ -398,5 +444,35 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+        // Accordion para Política de Privacidade
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordion = document.querySelector('.accordion');
+            const accordionHeader = document.querySelector('.accordion-header');
+            
+            accordionHeader.addEventListener('click', function() {
+                accordion.classList.toggle('active');
+            });
+            
+            // Animação de entrada para as seções
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observar todas as seções
+            document.querySelectorAll('section, footer').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
