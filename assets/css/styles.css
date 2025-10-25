@@ -1918,3 +1918,68 @@ footer {
         height: 180px;
     }
 }
+/* Navegação de Serviços - Scroll Horizontal (RECOMENDADO) */
+.servicos-nav {
+    background: var(--light-color);
+    padding: 0.8rem 0;
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.servicos-nav-container {
+    display: flex;
+    gap: 0.8rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--light-color);
+}
+
+.servicos-nav-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.servicos-nav-container::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+.servicos-nav-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.servico-nav-link {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    border: 1.5px solid var(--border-color);
+    background: white;
+    flex-shrink: 0;
+}
+
+.servico-nav-link:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+/* Para mobile */
+@media (max-width: 768px) {
+    .servicos-nav-container {
+        gap: 0.5rem;
+    }
+    
+    .servico-nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
