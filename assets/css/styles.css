@@ -1195,3 +1195,215 @@ footer {
         font-size: 1.2rem;
     }
 }
+/* ===== FALE CONOSCO ESPECÍFICO ===== */
+.hero-contato {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(38, 192, 76, 0.4), rgba(45, 65, 50, 0.6)), url('../img/contato/Hero_Contato_Sem_Texto.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: -80px;
+}
+
+/* Ícones de Contato */
+.contato-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    transition: var(--transition);
+}
+
+.card:hover .contato-icon {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.contato-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.contato-info {
+    margin-top: 20px;
+}
+
+.contato-info p {
+    margin-bottom: 8px;
+}
+
+/* Formulário */
+.form-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.form-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-light);
+}
+
+/* Diretores */
+.diretor-card {
+    height: 100%;
+    transition: var(--transition);
+}
+
+.diretor-card:hover {
+    transform: translateY(-5px);
+}
+
+.diretor-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 4px solid var(--primary-color);
+}
+
+.diretor-cargo {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.diretor-formacao {
+    color: var(--text-color);
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.diretor-experiencia {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.diretor-contato {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Redes Sociais */
+.rede-social-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    color: white;
+    transition: var(--transition);
+}
+
+.rede-social-icon.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+.rede-social-icon.linkedin {
+    background: #0077B5;
+}
+
+.rede-social-icon.email {
+    background: var(--primary-color);
+}
+
+.rede-social-icon.blog {
+    background: var(--accent-purple);
+}
+
+.card:hover .rede-social-icon {
+    transform: scale(1.1);
+}
+
+/* Política de Privacidade */
+.politica-content h3 {
+    color: var(--primary-color);
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.politica-content h3:first-child {
+    margin-top: 0;
+}
+
+.politica-content ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.politica-content li {
+    margin-bottom: 8px;
+}
+
+/* ===== RESPONSIVIDADE ESPECÍFICA ===== */
+@media (max-width: 992px) {
+    .hero-contato {
+        height: 40vh;
+        min-height: 350px;
+    }
+    
+    .diretor-contato {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .diretor-contato .btn {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-contato {
+        height: 35vh;
+        min-height: 300px;
+    }
+    
+    .contato-links .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-contato {
+        height: 30vh;
+        min-height: 250px;
+    }
+    
+    .hero-contato h1 {
+        font-size: 2.5rem;
+    }
+    
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .diretor-foto {
+        width: 120px;
+        height: 120px;
+    }
+}
