@@ -11,6 +11,7 @@
     --text-color: #444;
     --gray-light: #e9ecef;
     --white: #ffffff;
+    --border-color: #dee2e6;
     --shadow-light: 0 2px 10px rgba(0,0,0,0.08);
     --shadow-medium: 0 4px 20px rgba(0,0,0,0.12);
     --border-radius: 8px;
@@ -26,6 +27,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 /* ===== ESTILOS GLOBAIS ===== */
@@ -46,7 +48,7 @@ body {
 /* ===== HEADER E NAVEGAÇÃO ===== */
 header {
     background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-light);
     position: fixed;
     top: 0;
     left: 0;
@@ -70,23 +72,13 @@ header {
 
 .logo-img {
     height: 50px;
-    margin-right: 10px;
-}
-
-.logo-text {
-    font-weight: 700;
-    color: var(--primary-dark);
-    font-size: 1.2rem;
 }
 
 /* ===== NAVEGAÇÃO PRINCIPAL ===== */
 nav ul {
     display: flex;
     list-style: none;
-}
-
-nav li {
-    margin-left: 25px;
+    gap: 25px;
 }
 
 nav a {
@@ -95,6 +87,7 @@ nav a {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
+    white-space: nowrap;
 }
 
 nav a:hover,
@@ -268,20 +261,278 @@ section {
 /* ===== GRIDS ===== */
 .grid-2 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
 }
 
 .grid-3 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .grid-4 {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
+}
+
+.grid-5 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* ===== HERO SECTIONS ===== */
+.hero-quem-somos,
+.hero-reserva-tecnica,
+.hero-contato,
+.hero-servicos {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 80px;
+}
+
+.hero-quem-somos {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/quem-somos/quem-somos.jpg');
+}
+
+.hero-reserva-tecnica {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/reserva-tecnica/f609525176.jpg');
+}
+
+.hero-contato {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/contato/Hero_Contato_Sem_Texto.png');
+}
+
+.hero-servicos {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/servicos/Estudos.jpg');
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(34, 87, 122, 0.8) 0%, rgba(56, 163, 165, 0.6) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== NAVEGAÇÃO DE SERVIÇOS ===== */
+.servicos-nav {
+    background: var(--light-color);
+    padding: 0.8rem 0;
+    position: sticky;
+    top: 80px;
+    z-index: 999;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.servicos-nav-container {
+    display: flex;
+    gap: 0.8rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--light-color);
+}
+
+.servicos-nav-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.servicos-nav-container::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+.servicos-nav-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.servico-nav-link {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: var(--transition);
+    white-space: nowrap;
+    font-size: 0.85rem;
+    border: 1.5px solid var(--border-color);
+    background: white;
+    flex-shrink: 0;
+}
+
+.servico-nav-link:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+/* ===== SEÇÕES DE SERVIÇOS ===== */
+.servico-section {
+    padding: 4rem 0;
+    scroll-margin-top: 140px;
+}
+
+.servico-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.servico-icon {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.servico-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.figura-tecnica img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.servico-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--light-color);
+    border-radius: 12px;
+}
+
+.servico-lista {
+    list-style: none;
+    padding: 0;
+}
+
+.servico-lista li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.servico-lista i {
+    color: var(--primary-color);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+/* ===== QUEM SOMOS ESPECÍFICO ===== */
+.mvv-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.mvv-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.valores-list {
+    margin-top: 1rem;
+}
+
+.valor-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--light-color);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.equipe-foto {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--primary-color);
+}
+
+.equipe-contato {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.especialidade-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
 }
 
 /* ===== FOOTER ===== */
@@ -297,11 +548,6 @@ footer {
     padding: 40px;
     background: rgba(255,255,255,0.1);
     border-radius: var(--border-radius);
-}
-
-.footer-callout h3 {
-    color: white;
-    margin-bottom: 20px;
 }
 
 .footer-content {
@@ -411,7 +657,8 @@ footer {
     h3 { font-size: 1.6rem; }
     
     .grid-3,
-    .grid-4 {
+    .grid-4,
+    .grid-5 {
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -424,17 +671,13 @@ footer {
         right: 0;
         background-color: white;
         flex-direction: column;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        box-shadow: var(--shadow-medium);
         padding: 20px;
+        gap: 15px;
     }
     
     nav ul.active {
         display: flex;
-    }
-    
-    nav li {
-        margin: 10px 0;
-        margin-left: 0;
     }
     
     .mobile-menu-btn {
@@ -443,6 +686,20 @@ footer {
     
     section {
         padding: 60px 0;
+    }
+    
+    .hero-quem-somos,
+    .hero-reserva-tecnica,
+    .hero-contato,
+    .hero-servicos {
+        height: 50vh;
+        min-height: 400px;
+        margin-top: 70px;
+    }
+    
+    .servico-header {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
@@ -453,7 +710,8 @@ footer {
     
     .grid-2,
     .grid-3,
-    .grid-4 {
+    .grid-4,
+    .grid-5 {
         grid-template-columns: 1fr;
     }
     
@@ -473,1130 +731,6 @@ footer {
     section {
         padding: 50px 0;
     }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.8rem; }
-    
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-/* ===== GRID 5 COLUNAS ===== */
-.grid-5 {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-}
-
-/* ===== PROCESSO TIMELINE ===== */
-.processo-etapa {
-    text-align: center;
-    padding: 20px;
-}
-
-.processo-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--white);
-    border: 3px solid var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 15px;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    transition: var(--transition);
-}
-
-.processo-etapa:hover .processo-icon {
-    background: var(--primary-color);
-    color: white;
-    transform: scale(1.1);
-}
-
-/* ===== DIFERENCIAL ICON ===== */
-.diferencial-icon {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.diferencial-icon img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-/* ===== RESPONSIVIDADE ADICIONAL ===== */
-@media (max-width: 992px) {
-    .grid-5 {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .grid-5 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .grid-5 {
-        grid-template-columns: 1fr;
-    }
-}
-/* ===== QUEM SOMOS ESPECÍFICO ===== */
-.hero-quem-somos {
-    position: relative;
-    height: 60vh;
-    overflow: hidden;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../img/quem-somos/somos.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-top: -80px;
-}
-
-/* MVV Cards */
-.mvv-icon {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mvv-icon img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.valores-list {
-    text-align: left;
-}
-
-.valor-item {
-    margin-bottom: 25px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid var(--gray-light);
-}
-
-.valor-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.valor-item h4 {
-    color: var(--primary-color);
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.valor-item h4 i {
-    width: 20px;
-    text-align: center;
-}
-
-/* Equipe */
-.equipe-foto {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 20px;
-    border: 4px solid var(--primary-color);
-}
-
-.cargo {
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.formacao {
-    color: var(--text-color);
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-.equipe-contato {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-/* Especialidades */
-.especialidade-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 15px;
-    font-size: 1.5rem;
-    transition: var(--transition);
-}
-
-.especialidade:hover .especialidade-icon {
-    background: var(--primary-dark);
-    transform: scale(1.1);
-}
-
-.especialidade h4 {
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-}
-
-.especialidade p {
-    font-size: 0.9rem;
-    margin-bottom: 0;
-    color: var(--text-color);
-}
-
-/* ===== RESPONSIVIDADE ESPECÍFICA ===== */
-@media (max-width: 768px) {
-    .hero-quem-somos {
-        height: 50vh;
-    }
-    
-    .mvv-icon {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .equipe-foto {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .equipe-contato {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .equipe-contato .btn {
-        width: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-quem-somos {
-        height: 40vh;
-    }
-    
-    .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-}
-/* ===== SERVIÇOS ESPECÍFICO ===== */
-.hero-servicos {
-    position: relative;
-    height: 50vh;
-    overflow: hidden;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('../img/servicos/Estudos.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-top: -80px;
-}
-
-/* Menu de Navegação de Serviços */
-.servicos-nav {
-    background-color: var(--white);
-    padding: 15px 0;
-    box-shadow: var(--shadow-light);
-    position: sticky;
-    top: 80px;
-    z-index: 999;
-    border-bottom: 1px solid var(--gray-light);
-}
-
-.servicos-nav-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.servico-nav-link {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-    font-size: 0.9rem;
-    white-space: nowrap;
-    border: 1px solid transparent;
-}
-
-.servico-nav-link:hover,
-.servico-nav-link:focus {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* Seções de Serviços */
-.servico-section {
-    scroll-margin-top: 140px;
-}
-
-.servico-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid var(--gray-light);
-    gap: 40px;
-}
-
-.servico-icon {
-    width: 200px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: var(--shadow-medium);
-    transition: var(--transition);
-}
-
-.servico-icon:hover {
-    transform: scale(1.05);
-}
-
-.servico-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.servico-imagem {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-light);
-    transition: var(--transition);
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.servico-imagem:hover {
-    transform: translateY(-5px);
-}
-
-.servico-imagem img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-/* Listas de Serviços */
-.servico-lista {
-    list-style: none;
-}
-
-.servico-lista li {
-    margin-bottom: 12px;
-    padding-left: 30px;
-    position: relative;
-}
-
-.servico-lista li i {
-    position: absolute;
-    left: 0;
-    top: 4px;
-    color: var(--primary-color);
-}
-
-.metodologia-lista {
-    list-style: decimal;
-    padding-left: 20px;
-}
-
-.metodologia-lista li {
-    margin-bottom: 8px;
-}
-
-/* Detalhes dos Serviços */
-.servico-detail {
-    height: 100%;
-    transition: var(--transition);
-}
-
-.servico-detail:hover {
-    transform: translateY(-5px);
-}
-
-.servico-detail h4 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.servico-detail ul {
-    list-style: none;
-}
-
-.servico-detail li {
-    margin-bottom: 8px;
-    padding-left: 0;
-    position: relative;
-}
-
-/* Figura Técnica */
-.figura-tecnica {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-light);
-    margin-top: 10px;
-    transition: var(--transition);
-}
-
-.figura-tecnica:hover {
-    transform: scale(1.02);
-}
-
-.figura-tecnica img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-/* CTA de Serviços */
-.servico-cta {
-    text-align: center;
-    margin-top: 50px;
-    padding: 40px;
-    background: var(--light-color);
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.servico-cta:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-
-/* Alternar cores de fundo */
-.servico-section:nth-child(even) {
-    background-color: var(--light-color);
-}
-
-/* ===== RESPONSIVIDADE ESPECÍFICA ===== */
-@media (max-width: 992px) {
-    .hero-servicos {
-        height: 40vh;
-    }
-    
-    .servico-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .servico-icon {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .servicos-nav {
-        top: 70px;
-    }
-    
-    .servicos-nav-container {
-        gap: 8px;
-    }
-    
-    .servico-nav-link {
-        font-size: 0.8rem;
-        padding: 6px 12px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-servicos {
-        height: 35vh;
-    }
-    
-    .servicos-nav-container {
-        gap: 6px;
-    }
-    
-    .servico-nav-link {
-        font-size: 0.75rem;
-        padding: 5px 10px;
-    }
-    
-    .servico-cta {
-        padding: 25px 15px;
-    }
-    
-    .servico-section {
-        scroll-margin-top: 120px;
-    }
-}
-
-@media (max-width: 480px) {
-    .servicos-nav-container {
-        gap: 4px;
-    }
-    
-    .servico-nav-link {
-        font-size: 0.7rem;
-        padding: 4px 8px;
-    }
-    
-    .hero-servicos {
-        margin-top: -70px;
-        height: 30vh;
-    }
-}
-/* ===== RESERVA TÉCNICA ESPECÍFICO ===== */
-.hero-reserva-tecnica {
-    position: relative;
-    height: 50vh;
-    min-height: 400px;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(38, 192, 76, 0.4), rgba(45, 65, 50, 0.6)), url('../img/reserva-tecnica/f609525176.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-top: -80px;
-}
-
-/* Feature Icons */
-.feature-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 2rem;
-    transition: var(--transition);
-}
-
-.card:hover .feature-icon {
-    background: var(--primary-dark);
-    transform: scale(1.1);
-}
-
-/* Legislação Cards */
-.legislacao-card {
-    height: 100%;
-}
-
-.legislacao-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: white;
-    padding: 25px;
-    position: relative;
-}
-
-.legislacao-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-}
-
-.legislacao-header h3 {
-    color: white;
-    margin-bottom: 0;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.legislacao-item {
-    margin-bottom: 25px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid var(--gray-light);
-    transition: var(--transition);
-}
-
-.legislacao-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.legislacao-item:hover {
-    background-color: var(--light-color);
-    margin: -10px;
-    padding: 10px;
-    border-radius: var(--border-radius);
-}
-
-.legislacao-item h4 {
-    color: var(--accent-dark);
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.legislacao-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-    padding: 8px 16px;
-    border-radius: var(--border-radius);
-    border: 1px solid transparent;
-}
-
-.legislacao-link:hover {
-    color: var(--primary-dark);
-    background-color: rgba(38, 192, 76, 0.1);
-    border-color: var(--primary-color);
-    transform: translateX(5px);
-}
-
-/* Notícias */
-.noticia-card {
-    height: 100%;
-    transition: var(--transition);
-}
-
-.noticia-card:hover {
-    transform: translateY(-8px);
-}
-
-.noticia-imagem {
-    height: 200px;
-    background: var(--gray-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.noticia-imagem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.noticia-card:hover .noticia-imagem img {
-    transform: scale(1.05);
-}
-
-.noticia-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-}
-
-.noticia-data {
-    color: var(--primary-color);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.noticia-fonte {
-    background: var(--gray-light);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-}
-
-.noticia-resumo {
-    color: var(--text-color);
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-/* ===== RESPONSIVIDADE ESPECÍFICA ===== */
-@media (max-width: 768px) {
-    .hero-reserva-tecnica {
-        height: 40vh;
-        min-height: 350px;
-    }
-    
-    .noticia-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .legislacao-item:hover {
-        margin: 0;
-        padding: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-reserva-tecnica {
-        height: 35vh;
-        min-height: 300px;
-    }
-    
-    .legislacao-header h3 {
-        font-size: 1.2rem;
-    }
-}
-/* ===== FALE CONOSCO ESPECÍFICO ===== */
-.hero-contato {
-    position: relative;
-    height: 50vh;
-    min-height: 400px;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(38, 192, 76, 0.4), rgba(45, 65, 50, 0.6)), url('../img/contato/Hero_Contato_Sem_Texto.png');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-top: -80px;
-}
-
-/* Ícones de Contato */
-.contato-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 2rem;
-    transition: var(--transition);
-}
-
-.card:hover .contato-icon {
-    background: var(--primary-dark);
-    transform: scale(1.1);
-}
-
-.contato-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.contato-info {
-    margin-top: 20px;
-}
-
-.contato-info p {
-    margin-bottom: 8px;
-}
-
-/* Formulário */
-.form-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.form-footer {
-    padding-top: 20px;
-    border-top: 1px solid var(--gray-light);
-}
-
-/* Diretores */
-.diretor-card {
-    height: 100%;
-    transition: var(--transition);
-}
-
-.diretor-card:hover {
-    transform: translateY(-5px);
-}
-
-.diretor-foto {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 20px;
-    border: 4px solid var(--primary-color);
-}
-
-.diretor-cargo {
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.diretor-formacao {
-    color: var(--text-color);
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-.diretor-experiencia {
-    margin-bottom: 25px;
-    line-height: 1.6;
-}
-
-.diretor-contato {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Redes Sociais */
-.rede-social-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 2rem;
-    color: white;
-    transition: var(--transition);
-}
-
-.rede-social-icon.instagram {
-    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-}
-
-.rede-social-icon.linkedin {
-    background: #0077B5;
-}
-
-.rede-social-icon.email {
-    background: var(--primary-color);
-}
-
-.rede-social-icon.blog {
-    background: var(--accent-purple);
-}
-
-.card:hover .rede-social-icon {
-    transform: scale(1.1);
-}
-
-/* Política de Privacidade */
-.politica-content h3 {
-    color: var(--primary-color);
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
-
-.politica-content h3:first-child {
-    margin-top: 0;
-}
-
-.politica-content ul {
-    list-style: disc;
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
-
-.politica-content li {
-    margin-bottom: 8px;
-}
-
-/* ===== RESPONSIVIDADE ESPECÍFICA ===== */
-@media (max-width: 992px) {
-    .hero-contato {
-        height: 40vh;
-        min-height: 350px;
-    }
-    
-    .diretor-contato {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .diretor-contato .btn {
-        width: 200px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-contato {
-        height: 35vh;
-        min-height: 300px;
-    }
-    
-    .contato-links .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-contato {
-        height: 30vh;
-        min-height: 250px;
-    }
-    
-    .hero-contato h1 {
-        font-size: 2.5rem;
-    }
-    
-    .grid-4 {
-        grid-template-columns: 1fr;
-    }
-    
-    .diretor-foto {
-        width: 120px;
-        height: 120px;
-    }
-}
-/* ===== HERO SECTIONS ESPECÍFICAS ===== */
-.hero-quem-somos {
-    position: relative;
-    height: 60vh;
-    min-height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
-                url('../img/quem-somos/quem-somos.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    margin-top: 80px; /* Compensa o header fixo */
-}
-
-.hero-reserva-tecnica {
-    position: relative;
-    height: 60vh;
-    min-height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
-                url('../img/reserva-tecnica/f609525176.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    margin-top: 80px;
-}
-
-.hero-contato {
-    position: relative;
-    height: 60vh;
-    min-height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
-                url('../img/contato/Hero_Contato_Sem_Texto.png') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    margin-top: 80px;
-}
-
-/* Hero Content */
-.hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.hero-description {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Hero Overlay */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(34, 87, 122, 0.8) 0%, rgba(56, 163, 165, 0.6) 100%);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-/* ===== ESTILOS ESPECÍFICOS QUEM SOMOS ===== */
-/* Ícones MVV */
-.mvv-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    background: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.mvv-icon img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-}
-
-/* Lista de Valores */
-.valores-list {
-    margin-top: 1rem;
-}
-
-.valor-item {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: var(--light-color);
-    border-radius: 8px;
-    border-left: 4px solid var(--primary-color);
-}
-
-.valor-item h4 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-.valor-item p {
-    font-size: 0.9rem;
-    color: var(--dark-color);
-    margin: 0;
-}
-
-/* Equipe */
-.equipe-foto {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 1.5rem;
-    border: 4px solid var(--primary-color);
-}
-
-.cargo {
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.formacao {
-    color: var(--secondary-color);
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
-.equipe-contato {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-/* Especialidades */
-.especialidade {
-    padding: 1.5rem 1rem;
-}
-
-.especialidade-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 1rem;
-    background: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-}
-
-/* ===== RESPONSIVIDADE HERO ===== */
-@media (max-width: 768px) {
-    .hero-quem-somos,
-    .hero-reserva-tecnica,
-    .hero-contato {
-        height: 50vh;
-        min-height: 400px;
-        margin-top: 70px;
-    }
     
     .hero-content h1 {
         font-size: 2.5rem;
@@ -1615,19 +749,18 @@ footer {
         align-items: center;
     }
     
+    .servicos-nav-container {
+        gap: 0.5rem;
+    }
+    
+    .servico-nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
     .equipe-foto {
         width: 150px;
         height: 150px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
     }
     
     .mvv-icon {
@@ -1641,345 +774,42 @@ footer {
     }
 }
 
-/* ===== ANIMAÇÕES ===== */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ===== CARDS ESPECÍFICOS ===== */
-.card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-}
-
-.card-content {
-    padding: 2rem;
-}
-
-.card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-left {
-    text-align: left;
-}
-
-/* ===== GRIDS ===== */
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.grid-4 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-.grid-5 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-}
-
-/* ===== SECTIONS ===== */
-.section-light {
-    background: var(--light-color);
-    padding: 4rem 0;
-}
-
-.section-dark {
-    background: var(--dark-color);
-    color: white;
-    padding: 4rem 0;
-}
-
-/* ===== BOTÕES ===== */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #1a5a8a;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.btn-small {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-}
-
-/* ===== ESPAÇAMENTOS ===== */
-.mb-2 {
-    margin-bottom: 2rem;
-}
-
-.mb-3 {
-    margin-bottom: 3rem;
-}
-
-.mb-4 {
-    margin-bottom: 4rem;
-}
-
-.mt-3 {
-    margin-top: 3rem;
-}
-/* ===== ESTILOS ESPECÍFICOS SERVIÇOS ===== */
-.hero-servicos {
-    position: relative;
-    height: 60vh;
-    min-height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
-                url('../img/servicos/servicos-hero.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    margin-top: 80px;
-}
-
-/* Navegação de Serviços */
-.servicos-nav {
-    background: var(--light-color);
-    padding: 1rem 0;
-    position: sticky;
-    top: 80px;
-    z-index: 100;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.servicos-nav-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.servico-nav-link {
-    color: var(--dark-color);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.servico-nav-link:hover {
-    background: var(--primary-color);
-    color: white;
-}
-
-/* Seções de Serviços */
-.servico-section {
-    padding: 4rem 0;
-}
-
-.servico-header {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.servico-icon {
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-}
-
-.servico-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Figuras Técnicas - Imagens Maiores */
-.figura-tecnica {
-    text-align: center;
-}
-
-.figura-tecnica img {
-    width: 100%;
-    height: 200px; /* Aumentado de ~150px para 200px */
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* Serviço CTA */
-.servico-cta {
-    text-align: center;
-    margin-top: 3rem;
-    padding: 2rem;
-    background: var(--light-color);
-    border-radius: 12px;
-}
-
-/* Listas de Serviços */
-.servico-lista {
-    list-style: none;
-    padding: 0;
-}
-
-.servico-lista li {
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-}
-
-.servico-lista i {
-    color: var(--primary-color);
-    margin-top: 0.25rem;
-    flex-shrink: 0;
-}
-
-.metodologia-lista {
-    padding-left: 1rem;
-}
-
-.metodologia-lista li {
-    margin-bottom: 0.5rem;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .servico-header {
-        flex-direction: column;
-        text-align: center;
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-quem-somos,
+    .hero-reserva-tecnica,
+    .hero-contato,
+    .hero-servicos {
+        height: 40vh;
+        min-height: 350px;
+        margin-top: 70px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
     }
     
     .servicos-nav-container {
-        gap: 1rem;
+        gap: 0.3rem;
     }
     
     .servico-nav-link {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-    
-    .figura-tecnica img {
-        height: 180px;
-    }
-}
-/* Navegação de Serviços - Scroll Horizontal (RECOMENDADO) */
-.servicos-nav {
-    background: var(--light-color);
-    padding: 0.8rem 0;
-    position: sticky;
-    top: 80px;
-    z-index: 100;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.servicos-nav-container {
-    display: flex;
-    gap: 0.8rem;
-    overflow-x: auto;
-    padding: 0.5rem 0;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) var(--light-color);
-}
-
-.servicos-nav-container::-webkit-scrollbar {
-    height: 4px;
-}
-
-.servicos-nav-container::-webkit-scrollbar-track {
-    background: var(--light-color);
-}
-
-.servicos-nav-container::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 2px;
-}
-
-.servico-nav-link {
-    color: var(--dark-color);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    font-size: 0.85rem;
-    border: 1.5px solid var(--border-color);
-    background: white;
-    flex-shrink: 0;
-}
-
-.servico-nav-link:hover {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-    transform: translateY(-1px);
-}
-
-/* Para mobile */
-@media (max-width: 768px) {
-    .servicos-nav-container {
-        gap: 0.5rem;
-    }
-    
-    .servico-nav-link {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
     }
 }
