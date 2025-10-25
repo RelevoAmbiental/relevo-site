@@ -6,627 +6,39 @@
     <title>Relevo Consultoria Ambiental - Expertise em Espeleologia e Licenciamento</title>
     <meta name="description" content="Consultoria ambiental especializada em espeleologia e licenciamento. Protegemos cavernas e viabilizamos empreendimentos com diagnósticos técnicos precisos.">
     <meta name="keywords" content="consultoria ambiental, espeleologia, licenciamento ambiental, estudos espeleológicos, cavernas, sustentabilidade">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Relevo Consultoria Ambiental">
+    <meta property="og:description" content="Expertise em espeleologia e licenciamento ambiental. Protegemos cavernas e viabilizamos empreendimentos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://relevoambiental.github.io/relevo-consultoria/">
+    
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <style>
-        /* Reset e estilos gerais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        :root {
-            --primary-color: #26C04C;
-            --primary-dark: #396B45;
-            --secondary-color: #EB8807;
-            --accent-dark: #2D4132;
-            --accent-brown: #6B5539;
-            --accent-purple: #4E296B;
-            --light-color: #f8f9fa;
-            --dark-color: #333;
-            --text-color: #444;
-            --gray-light: #e9ecef;
-        }
-        
-        body {
-            color: var(--text-color);
-            line-height: 1.6;
-            padding-top: 0;
-            scroll-behavior: smooth;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header e Navegação */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-        
-        .logo-text {
-            font-weight: 700;
-            color: var(--primary-dark);
-            font-size: 1.2rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav li {
-            margin-left: 25px;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--accent-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--primary-color);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--accent-dark);
-            cursor: pointer;
-        }
-        
-        section {
-            padding: 80px 0;
-            position: relative;
-            z-index: 10;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        h1, h2, h3, h4 {
-            color: var(--accent-dark);
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            font-weight: 700;
-            margin-top: 0;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            font-weight: 600;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-color);
-        }
-        
-        p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-            border: 2px solid var(--primary-color);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            border-color: var(--primary-dark);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        /* Hero Section com Carrossel */
-        .hero {
-            position: relative;
-            height: 100vh;
-            color: white;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-            opacity: 1 !important;
-            transform: none !important;
-        }
-        
-        /* Carrossel Swiper */
-        .swiper {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
-        
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-            z-index: 2;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 3;
-        }
-        
-        .hero h1 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            font-weight: 500;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            font-style: italic;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        /* Diferenciais */
-        .diferenciais {
-            background-color: var(--light-color);
-        }
-        
-        .diferenciais-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        
-        .diferencial-card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .diferencial-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .diferencial-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .diferencial-icon {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .diferencial-icon img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        
-        .diferencial-img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
-        
-        /* Serviços */
-        .servicos-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        
-        .servico-card {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .servico-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .servico-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .servico-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .servico-content {
-            padding: 25px;
-        }
-        
-        .servico-link {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--primary-color);
-            font-weight: 600;
-            text-decoration: none;
-        }
-        
-        .servico-link:hover {
-            text-decoration: underline;
-        }
-        
-        /* Processo */
-        .processo-timeline {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .processo-timeline::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background-color: var(--primary-color);
-            z-index: 1;
-        }
-        
-        .processo-etapa {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .processo-etapa.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .processo-icon {
-            width: 80px;
-            height: 80px;
-            background-color: white;
-            border: 4px solid var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--accent-dark);
-            color: white;
-            padding: 60px 0 30px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        footer.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .footer-callout {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .footer-callout h3 {
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h4 {
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .footer-links i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 3rem;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .diferenciais-grid,
-            .servicos-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .processo-timeline {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .processo-timeline::before {
-                display: none;
-            }
-            
-            .processo-etapa {
-                margin-bottom: 30px;
-                width: 100%;
-            }
-            
-            .diferencial-icon {
-                width: 120px;
-                height: 120px;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: white;
-                flex-direction: column;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                padding: 20px;
-            }
-            
-            nav ul.active {
-                display: flex;
-            }
-            
-            nav li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .diferenciais-grid,
-            .servicos-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .diferencial-icon {
-                width: 100px;
-                height: 100px;
-            }
-        }
-    </style>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/carrossel.css">
 </head>
 <body>
-    <!-- Header com Navegação -->
+    <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <!-- Adicione sua logo aqui -->
+            <a href="index.html" class="logo">
+                <img src="assets/icons/Logo_atualizada_horizontal.png" alt="Relevo Consultoria Ambiental" class="logo-img" onerror="this.style.display='none'">
                 <div class="logo-text">RELEVO CONSULTORIA AMBIENTAL</div>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
                 <ul id="mainMenu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="quem-somos.html">Quem Somos</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="reserva-tecnica.html">Reserva Técnica</a></li>
+                    <li><a href="intranet.html">Intranet</a></li>
                     <li><a href="fale-conosco.html">Contato</a></li>
                 </ul>
             </nav>
@@ -634,135 +46,182 @@
     </header>
 
     <!-- Hero Section com Carrossel -->
-    <section class="hero" id="home">
-        <!-- Carrossel Swiper -->
+    <section class="hero-carrossel" id="home">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <!-- Exemplo de slides (troque pelos nomes reais das imagens) -->
                 <div class="swiper-slide">
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC00582.JPG" alt="Imagem 1">
+                    <img src="assets/img/hero/carrossel-1.JPG" alt="Equipe Relevo em trabalho de campo" loading="lazy">
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC_0842.JPG" alt="Imagem 2">
+                    <img src="assets/img/hero/carrossel-2.jpg" alt="Estudos espeleológicos em caverna" loading="lazy">
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/TimePhoto_20240715_112924.jpg" alt="Imagem 3">
+                    <img src="assets/img/hero/carrossel-3.JPG" alt="Mapeamento de caverna" loading="lazy">
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC00600.JPG" alt="Imagem 4">
+                    <img src="assets/img/hero/carrossel-4.JPG" alt="Trabalho técnico especializado" loading="lazy">
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/TimePhoto_20240721_102817.jpg" alt="Imagem 5">
+                    <img src="assets/img/hero/carrossel-5.jpg" alt="Consultoria ambiental" loading="lazy">
                 </div>
             </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content fade-in">
                 <h1>Relevo Consultoria Ambiental</h1>
                 <p class="hero-subtitle">Expertise em Espeleologia e Licenciamento</p>
                 <p class="hero-description">Protegemos cavernas e viabilizamos empreendimentos: diagnóstico técnico, licenciamento robusto e planos de manejo.</p>
                 <div class="hero-buttons">
-                    <a href="fale-conosco.html" class="btn btn-primary">Solicitar Diagnóstico Rápido</a>
-                    <a href="#servicos" class="btn btn-secondary">Ver Serviços</a>
+                    <a href="fale-conosco.html" class="btn btn-primary">
+                        <i class="fas fa-bolt"></i>
+                        Solicitar Diagnóstico Rápido
+                    </a>
+                    <a href="#servicos" class="btn btn-secondary">
+                        <i class="fas fa-search"></i>
+                        Ver Serviços
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Diferenciais -->
-    <section class="diferenciais" id="diferenciais">
+    <section class="section-light" id="diferenciais">
         <div class="container">
-            <h2>Nossos Diferenciais</h2>
-            <div class="diferenciais-grid">
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <img src="https://raw.githubusercontent.com/RelevoAmbiental/icons/refs/heads/main/Caverna.png" alt="Especialização em Espeleologia">
+            <h2 class="fade-in">Nossos Diferenciais</h2>
+            <div class="grid-3" data-animate-children="true">
+                <div class="card fade-in">
+                    <div class="card-content text-center">
+                        <div class="diferencial-icon">
+                            <img src="assets/icons/Caverna.png" alt="Especialização em Espeleologia" loading="lazy">
+                        </div>
+                        <img src="assets/img/servicos/TimePhoto_20241024_160102.jpg" alt="Equipe realizando trabalho espeleológico" class="card-img" loading="lazy">
+                        <h3>Especialização em Espeleologia</h3>
+                        <p>Mapeamento, Técnicas verticais, Monitoramento, Educação ambiental com expertise comprovada.</p>
                     </div>
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/IMG-20250610-WA0270.jpg" alt="Equipe realizando trabalho espeleológico" class="diferencial-img">
-                    <h3>Especialização em Espeleologia</h3>
-                    <p>Mapeamento, Técnicas verticais, Monitoramento, Educação ambiental</p>
                 </div>
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <img src="https://raw.githubusercontent.com/RelevoAmbiental/icons/refs/heads/main/multidisciplinar.png" alt="Equipe Multidisciplinar">
+                
+                <div class="card fade-in">
+                    <div class="card-content text-center">
+                        <div class="diferencial-icon">
+                            <img src="assets/icons/multidisciplinar.png" alt="Equipe Multidisciplinar" loading="lazy">
+                        </div>
+                        <img src="assets/img/equipe/TimePhoto_20241024_160102.jpg" alt="Equipe multidisciplinar em reunião" class="card-img" loading="lazy">
+                        <h3>Equipe Multidisciplinar</h3>
+                        <p>Geólogos, biólogos, arqueólogos e outros especialistas disponíveis conforme necessidade do projeto.</p>
                     </div>
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/TimePhoto_20241024_160102.jpg" alt="Equipe multidisciplinar em reunião" class="diferencial-img">
-                    <h3>Equipe Multidisciplinar</h3>
-                    <p>Geólogos, biólogos, arqueólogos e outros especialistas disponíveis conforme necessidade.</p>
                 </div>
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <img src="https://raw.githubusercontent.com/RelevoAmbiental/icons/refs/heads/main/SegurancaJuridica.png" alt="Segurança Jurídica">
+                
+                <div class="card fade-in">
+                    <div class="card-content text-center">
+                        <div class="diferencial-icon">
+                            <img src="assets/icons/SegurancaJuridica.png" alt="Segurança Jurídica" loading="lazy">
+                        </div>
+                        <img src="assets/img/servicos/SIG.png" alt="Documentação e conformidade" class="card-img" loading="lazy">
+                        <h3>Segurança Jurídica</h3>
+                        <p>Entregáveis com conformidade legal e implementação eficaz de condicionantes ambientais.</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Documentação e conformidade" class="diferencial-img">
-                    <h3>Segurança Jurídica</h3>
-                    <p>Entregáveis com conformidade legal e implementação eficaz de condicionantes.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Serviços -->
-    <section class="servicos" id="servicos">
+    <section id="servicos">
         <div class="container">
-            <h2>Nossos Serviços</h2>
-            <div class="servicos-grid">
-                <div class="servico-card">
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/licenciamento.jpg" alt="Licenciamento Ambiental" class="servico-img">
-                    <div class="servico-content">
+            <h2 class="fade-in">Nossos Serviços</h2>
+            <div class="grid-3" data-animate-children="true">
+                <div class="card fade-in">
+                    <img src="assets/img/servicos/licenciamento.jpg" alt="Licenciamento Ambiental" class="card-img" loading="lazy">
+                    <div class="card-content">
                         <h3>Licenciamento Ambiental</h3>
                         <p>Processo completo de licenciamento para diversos setores, garantindo conformidade com a legislação.</p>
-                        <a href="servicos.html#licenciamento" class="servico-link">Saiba mais →</a>
+                        <a href="servicos.html#licenciamento" class="btn btn-secondary btn-small">
+                            Saiba mais
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="servico-card">
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/Estudos.jpg" alt="Estudos Espeleológicos" class="servico-img">
-                    <div class="servico-content">
+                
+                <div class="card fade-in">
+                    <img src="assets/img/servicos/Estudos.jpg" alt="Estudos Espeleológicos" class="card-img" loading="lazy">
+                    <div class="card-content">
                         <h3>Estudos Espeleológicos</h3>
-                        <p>Diagnóstico, caracterização e mapeamento de cavernas com tecnologia de ponta.</p>
-                        <a href="servicos.html#espeleologia" class="servico-link">Saiba mais →</a>
+                        <p>Diagnóstico, caracterização e mapeamento de cavernas com tecnologia de ponta e metodologia científica.</p>
+                        <a href="servicos.html#espeleologia" class="btn btn-secondary btn-small">
+                            Saiba mais
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="servico-card">
-                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/vibracao.jpg" alt="Estudos Complementares" class="servico-img">
-                    <div class="servico-content">
+                
+                <div class="card fade-in">
+                    <img src="assets/img/servicos/vibracao.jpg" alt="Estudos Complementares" class="card-img" loading="lazy">
+                    <div class="card-content">
                         <h3>Estudos Complementares</h3>
-                        <p>Inventários de fauna, flora, estudos arqueológicos e outros diagnósticos ambientais.</p>
-                        <a href="servicos.html#complementares" class="servico-link">Saiba mais →</a>
+                        <p>Inventários de fauna, flora, estudos arqueológicos e outros diagnósticos ambientais especializados.</p>
+                        <a href="servicos.html#complementares" class="btn btn-secondary btn-small">
+                            Saiba mais
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
+            </div>
+            
+            <div class="text-center mt-3">
+                <a href="servicos.html" class="btn btn-primary">
+                    <i class="fas fa-list"></i>
+                    Ver Todos os Serviços
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Processo -->
-    <section class="processo" id="processo">
+    <section class="section-light" id="processo">
         <div class="container">
-            <h2>Nosso Processo</h2>
-            <div class="processo-timeline">
-                <div class="processo-etapa">
-                    <div class="processo-icon">🔍</div>
+            <h2 class="fade-in">Nosso Processo</h2>
+            <div class="grid-5" data-animate-children="true">
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
                     <h3>Levantamento</h3>
-                    <p>Análise preliminar e planejamento</p>
+                    <p>Análise preliminar e planejamento estratégico</p>
                 </div>
-                <div class="processo-etapa">
-                    <div class="processo-icon">🏞️</div>
+                
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
                     <h3>Campo</h3>
-                    <p>Coleta de dados e amostras</p>
+                    <p>Coleta de dados e amostras técnicas</p>
                 </div>
-                <div class="processo-etapa">
-                    <div class="processo-icon">🔬</div>
+                
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
                     <h3>Análises</h3>
-                    <p>Processamento e interpretação</p>
+                    <p>Processamento e interpretação de dados</p>
                 </div>
-                <div class="processo-etapa">
-                    <div class="processo-icon">📋</div>
+                
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
                     <h3>Relatório</h3>
                     <p>Elaboração de documentos técnicos</p>
                 </div>
-                <div class="processo-etapa">
-                    <div class="processo-icon">✅</div>
+                
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                     <h3>Acompanhamento</h3>
                     <p>Implementação de condicionantes</p>
                 </div>
@@ -773,35 +232,41 @@
     <!-- Footer -->
     <footer id="contato">
         <div class="container">
-            <div class="footer-callout">
+            <div class="footer-callout fade-in">
                 <h3>Precisa de mobilização rápida?</h3>
                 <p>Verifique nossa disponibilidade (standby)</p>
-                <a href="https://forms.zohopublic.com/samuelrel1/form/SimpleContactUs/formperma/bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY" class="btn btn-primary">Solicitar Orçamento</a>
+                <a href="https://forms.zohopublic.com/samuelrel1/form/SimpleContactUs/formperma/bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-bolt"></i>
+                    Solicitar Orçamento
+                </a>
             </div>
+            
             <div class="footer-content">
                 <div class="footer-column">
                     <h4>Relevo Consultoria</h4>
-                    <p>Expertise em espeleologia e licenciamento ambiental. Protegemos cavernas e viabilizamos empreendimentos.</p>
+                    <p>Expertise em espeleologia e licenciamento ambiental. Protegemos cavernas e viabilizamos empreendimentos sustentáveis.</p>
                 </div>
+                
                 <div class="footer-column">
                     <h4>Serviços</h4>
                     <ul class="footer-links">
                         <li><a href="servicos.html#licenciamento">Licenciamento Ambiental</a></li>
                         <li><a href="servicos.html#espeleologia">Estudos Espeleológicos</a></li>
                         <li><a href="servicos.html#complementares">Estudos Complementares</a></li>
-                        <li><a href="servicos.html#plano-manejo">Plano de Manejo</a></li>
+                        <li><a href="servicos.html#plano-manejo">Planos de Manejo</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-column">
                     <h4>Contato</h4>
                     <ul class="footer-links">
                         <li>
-                            <a href="https://wa.me/5561981523078" target="_blank">
+                            <a href="https://wa.me/5561981523078" target="_blank" rel="noopener">
                                 <i class="fab fa-whatsapp"></i> +55 (61) 98152-3078
                             </a>
                         </li>
                         <li>
-                            <a href="https://wa.me/5561982926996" target="_blank">
+                            <a href="https://wa.me/5561982926996" target="_blank" rel="noopener">
                                 <i class="fab fa-whatsapp"></i> +55 (61) 98292-6996
                             </a>
                         </li>
@@ -811,13 +276,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://instagram.com/relevo.eco" target="_blank">
+                            <a href="https://instagram.com/relevo.eco" target="_blank" rel="noopener">
                                 <i class="fab fa-instagram"></i> @relevo.eco
                             </a>
                         </li>
                         <li>
-                            <a href="https://linkedin.com/company/relevo-ambiental" target="_blank">
-                                <i class="fab fa-linkedin"></i> linkedin.com/company/relevo-ambiental
+                            <a href="https://linkedin.com/company/relevo-ambiental" target="_blank" rel="noopener">
+                                <i class="fab fa-linkedin"></i> Relevo Ambiental
                             </a>
                         </li>
                         <li>
@@ -826,157 +291,16 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>&copy; 2025 Relevo Consultoria Ambiental. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Swiper JS -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        // Inicializar Swiper
-        var swiper = new Swiper(".mySwiper", {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-
-        // Menu mobile
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainMenu = document.getElementById('mainMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mainMenu.classList.toggle('active');
-        });
-        
-        // Scroll suave para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Fechar menu mobile se estiver aberto
-                    mainMenu.classList.remove('active');
-                }
-            });
-        });
-
-        // Animação de entrada para as seções
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Se for uma seção com elementos internos para animar
-                    if (entry.target.classList.contains('diferenciais')) {
-                        const cards = entry.target.querySelectorAll('.diferencial-card');
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('visible');
-                            }, index * 200);
-                        });
-                    }
-                    
-                    if (entry.target.classList.contains('servicos')) {
-                        const cards = entry.target.querySelectorAll('.servico-card');
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('visible');
-                            }, index * 200);
-                        });
-                    }
-                    
-                    if (entry.target.classList.contains('processo')) {
-                        const etapas = entry.target.querySelectorAll('.processo-etapa');
-                        etapas.forEach((etapa, index) => {
-                            setTimeout(() => {
-                                etapa.classList.add('visible');
-                            }, index * 200);
-                        });
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observar todas as seções exceto o hero
-        document.querySelectorAll('section:not(.hero), footer').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Fazer com que as seções apareçam imediatamente se já estiverem visíveis
-        window.addEventListener('load', () => {
-            document.querySelectorAll('section:not(.hero), footer').forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    section.classList.add('visible');
-                    
-                    // Animar elementos internos também
-                    if (section.classList.contains('diferenciais')) {
-                        const cards = section.querySelectorAll('.diferencial-card');
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('visible');
-                            }, index * 200);
-                        });
-                    }
-                    
-                    if (section.classList.contains('servicos')) {
-                        const cards = section.querySelectorAll('.servico-card');
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('visible');
-                            }, index * 200);
-                        });
-                    }
-                    
-                    if (section.classList.contains('processo')) {
-                        const etapas = section.querySelectorAll('.processo-etapa');
-                        etapas.forEach((etapa, index) => {
-                            setTimeout(() => {
-                                etapa.classList.add('visible');
-                            }, index * 200);
-                        });
-                    }
-                }
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
-        });
-    </script>
+    <script src="assets/js/carrossel.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
