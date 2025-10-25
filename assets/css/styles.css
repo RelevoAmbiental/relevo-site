@@ -720,3 +720,275 @@ footer {
         gap: 20px;
     }
 }
+/* ===== SERVIÇOS ESPECÍFICO ===== */
+.hero-servicos {
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('../img/servicos/Estudos.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: -80px;
+}
+
+/* Menu de Navegação de Serviços */
+.servicos-nav {
+    background-color: var(--white);
+    padding: 15px 0;
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 80px;
+    z-index: 999;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.servicos-nav-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.servico-nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+.servico-nav-link:hover,
+.servico-nav-link:focus {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Seções de Serviços */
+.servico-section {
+    scroll-margin-top: 140px;
+}
+
+.servico-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gray-light);
+    gap: 40px;
+}
+
+.servico-icon {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition);
+}
+
+.servico-icon:hover {
+    transform: scale(1.05);
+}
+
+.servico-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.servico-imagem {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.servico-imagem:hover {
+    transform: translateY(-5px);
+}
+
+.servico-imagem img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Listas de Serviços */
+.servico-lista {
+    list-style: none;
+}
+
+.servico-lista li {
+    margin-bottom: 12px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.servico-lista li i {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: var(--primary-color);
+}
+
+.metodologia-lista {
+    list-style: decimal;
+    padding-left: 20px;
+}
+
+.metodologia-lista li {
+    margin-bottom: 8px;
+}
+
+/* Detalhes dos Serviços */
+.servico-detail {
+    height: 100%;
+    transition: var(--transition);
+}
+
+.servico-detail:hover {
+    transform: translateY(-5px);
+}
+
+.servico-detail h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.servico-detail ul {
+    list-style: none;
+}
+
+.servico-detail li {
+    margin-bottom: 8px;
+    padding-left: 0;
+    position: relative;
+}
+
+/* Figura Técnica */
+.figura-tecnica {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    margin-top: 10px;
+    transition: var(--transition);
+}
+
+.figura-tecnica:hover {
+    transform: scale(1.02);
+}
+
+.figura-tecnica img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* CTA de Serviços */
+.servico-cta {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px;
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.servico-cta:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Alternar cores de fundo */
+.servico-section:nth-child(even) {
+    background-color: var(--light-color);
+}
+
+/* ===== RESPONSIVIDADE ESPECÍFICA ===== */
+@media (max-width: 992px) {
+    .hero-servicos {
+        height: 40vh;
+    }
+    
+    .servico-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .servico-icon {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .servicos-nav {
+        top: 70px;
+    }
+    
+    .servicos-nav-container {
+        gap: 8px;
+    }
+    
+    .servico-nav-link {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-servicos {
+        height: 35vh;
+    }
+    
+    .servicos-nav-container {
+        gap: 6px;
+    }
+    
+    .servico-nav-link {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+    
+    .servico-cta {
+        padding: 25px 15px;
+    }
+    
+    .servico-section {
+        scroll-margin-top: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicos-nav-container {
+        gap: 4px;
+    }
+    
+    .servico-nav-link {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+    
+    .hero-servicos {
+        margin-top: -70px;
+        height: 30vh;
+    }
+}
