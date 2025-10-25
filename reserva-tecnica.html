@@ -288,17 +288,6 @@
         <div class="scroll-progress"></div>
     </div>
 
-    <!-- Menu de Navegação da Reserva Técnica -->
-    <nav class="servicos-nav">
-        <div class="container">
-            <div class="servicos-nav-container">
-                <a href="#sobre" class="servico-nav-link">Sobre a Reserva Técnica</a>
-                <a href="#legislacao" class="servico-nav-link">Legislação Aplicável</a>
-                <a href="#noticias" class="servico-nav-link">Notícias Espeleológicas</a>
-            </div>
-        </div>
-    </nav>
-
     <!-- Hero Section Reserva Técnica -->
     <section class="hero-reserva-tecnica">
         <div class="container">
@@ -668,55 +657,6 @@
         // Observar todas as seções
         document.querySelectorAll('section, footer').forEach(section => {
             observer.observe(section);
-        });
-
-        // Navegação por âncora simplificada
-        document.querySelectorAll('.servico-nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    // Remover classe active de todos os links
-                    document.querySelectorAll('.servico-nav-link').forEach(l => {
-                        l.classList.remove('active');
-                    });
-                    
-                    // Adicionar classe active ao link clicado
-                    this.classList.add('active');
-                    
-                    // Rolar suavemente para a seção
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Atualizar navegação ativa no scroll
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY;
-            
-            // Remover classe active de todos os links
-            document.querySelectorAll('.servico-nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Verificar qual seção está visível
-            document.querySelectorAll('.servico-section').forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    const id = section.getAttribute('id');
-                    const correspondingLink = document.querySelector(`.servico-nav-link[href="#${id}"]`);
-                    if (correspondingLink) {
-                        correspondingLink.classList.add('active');
-                    }
-                }
-            });
         });
     </script>
 </body>
