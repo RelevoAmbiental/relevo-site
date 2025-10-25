@@ -8,6 +8,8 @@
     <meta name="keywords" content="consultoria ambiental, espeleologia, licenciamento ambiental, estudos espeleológicos, cavernas, sustentabilidade">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         /* Reset e estilos gerais */
         * {
@@ -218,29 +220,29 @@
             transform: none !important;
         }
         
-        .hero-slider {
+        /* Carrossel Swiper */
+        .swiper {
+            width: 100%;
+            height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
             z-index: 1;
         }
         
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
-        .hero-slide.active {
-            opacity: 1;
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .hero-overlay {
@@ -633,8 +635,26 @@
 
     <!-- Hero Section com Carrossel -->
     <section class="hero" id="home">
-        <div class="hero-slider">
-            <!-- Slides serão inseridos via JavaScript -->
+        <!-- Carrossel Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Exemplo de slides (troque pelos nomes reais das imagens) -->
+                <div class="swiper-slide">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC00582.JPG" alt="Imagem 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC_0842.JPG" alt="Imagem 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/TimePhoto_20240715_112924.jpg" alt="Imagem 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC00600.JPG" alt="Imagem 4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/TimePhoto_20240721_102817.jpg" alt="Imagem 5">
+                </div>
+            </div>
         </div>
         <div class="hero-overlay"></div>
         <div class="container">
@@ -812,54 +832,26 @@
         </div>
     </footer>
 
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Carrossel do Hero
-        const heroImages = [
-            'https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC00582.JPG',
-            'https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC_0842.JPG',
-            'https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/TimePhoto_20240715_112924.jpg',
-            'https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/DSC00600.JPG',
-            'https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/TimePhoto_20240721_102817.jpg',
-            'https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/TimePhoto_20241024_174853.jpg',
-            'https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/f595364040.jpg',
-            'https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/f609525176.jpg',
-            'https://raw.githubusercontent.com/RelevoAmbiental/imagens/refs/heads/main/f609621744.jpg'
-        ];
-
-        const heroSlider = document.querySelector('.hero-slider');
-        let currentHeroSlide = 0;
-        let heroSlideInterval;
-
-        // Criar slides
-        heroImages.forEach((image, index) => {
-            const slide = document.createElement('div');
-            slide.className = `hero-slide ${index === 0 ? 'active' : ''}`;
-            slide.style.backgroundImage = `url('${image}')`;
-            heroSlider.appendChild(slide);
+        // Inicializar Swiper
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
         });
 
-        const heroSlides = document.querySelectorAll('.hero-slide');
-
-        function goToHeroSlide(index) {
-            heroSlides.forEach(slide => slide.classList.remove('active'));
-            heroSlides[index].classList.add('active');
-            currentHeroSlide = index;
-            
-            // Reiniciar o intervalo
-            clearInterval(heroSlideInterval);
-            startHeroSlideInterval();
-        }
-
-        function startHeroSlideInterval() {
-            heroSlideInterval = setInterval(() => {
-                currentHeroSlide = (currentHeroSlide + 1) % heroImages.length;
-                goToHeroSlide(currentHeroSlide);
-            }, 5000);
-        }
-
-        // Iniciar o carrossel
-        startHeroSlideInterval();
-        
         // Menu mobile
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainMenu = document.getElementById('mainMenu');
