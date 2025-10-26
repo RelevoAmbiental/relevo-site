@@ -1,266 +1,224 @@
-🌿 Relevo Consultoria Ambiental - Site Institucional
-Site institucional profissional especializado em espeleologia e licenciamento ambiental.
+# 🌿 Relevo Consultoria Ambiental - Site Institucional
 
-📁 ESTRUTURA DO PROJETO
-text
+## 📋 Sobre o Projeto
+
+Site institucional da **Relevo Consultoria Ambiental**, especializada em espeleologia e licenciamento ambiental. O projeto apresenta uma presença digital moderna, responsiva e profissional, refletindo a expertise da empresa na proteção de cavernas e viabilização de empreendimentos sustentáveis.
+
+## 🎯 Estrutura do Site
+
+### 📄 Páginas Desenvolvidas
+
+1. **`index.html`** - Página inicial com apresentação e diferenciais
+2. **`quem-somos.html`** - Missão, visão, valores e equipe
+3. **`servicos.html`** - Portfólio completo de serviços ambientais
+4. **`reserva-tecnica.html`** - Legislação e informações espeleológicas
+5. **`fale-conosco.html`** - Canais de contato e formulário
+6. **`intranet.html`** - Acesso ao portal interno
+
+## 🛠 Tecnologias Utilizadas
+
+- **HTML5** - Estrutura semântica
+- **CSS3** - Estilização com variáveis e Grid/Flexbox
+- **JavaScript** - Interatividade e animações
+- **Font Awesome 6.5.0** - Ícones
+- **Google Fonts (Montserrat)** - Tipografia
+- **Zoho Forms** - Integração de formulários
+
+## 🎨 Design System
+
+### 🎨 Cores Principais
+```css
+--primary-color: #26C04C      /* Verde principal */
+--primary-dark: #396B45       /* Verde escuro */
+--secondary-color: #EB8807    /* Laranja/âmbar */
+--accent-dark: #2D4132        /* Verde musgo */
+--accent-brown: #6B5539       /* Marrom terroso */
+--light-color: #f8f9fa        /* Fundo claro */
+```
+
+### 📐 Componentes
+- **Header** fixo com navegação responsiva
+- **Hero Sections** com imagens de fundo
+- **Cards** com hover effects
+- **Grids** responsivos (2, 3, 4 colunas)
+- **Buttons** com estados de hover
+- **Accordions** para conteúdo expansível
+
+## 📁 Estrutura de Arquivos
+
+```
 relevo-consultoria/
-├── index.html              # Página principal
-├── quem-somos.html         # Sobre a empresa
-├── servicos.html           # Catálogo de serviços
-├── reserva-tecnica.html    # Reserva técnica especializada
-├── fale-conosco.html       # Formulário de contato
-└── README.md               # Este arquivo
-🎯 PÁGINAS IMPLEMENTADAS
-1. index.html - Página Principal
-Hero com carrossel automático de imagens
+├── index.html
+├── quem-somos.html
+├── servicos.html
+├── reserva-tecnica.html
+├── fale-conosco.html
+├── intranet.html
+├── assets/
+│   ├── css/
+│   │   └── styles.css          # Estilos principais (728 linhas)
+│   ├── js/
+│   │   └── script.js           # JavaScript funcional
+│   └── img/
+│       ├── logo/
+│       │   └── Logo_Relevo_Verde.png
+│       ├── icons/              # Ícones das seções
+│       ├── hero/               # Imagens hero sections
+│       ├── equipe/             # Fotos da equipe
+│       ├── servicos/           # Imagens dos serviços
+│       ├── reserva-tecnica/    # Imagens reserva técnica
+│       └── contato/            # Imagens de contato
+└── README.md
+```
 
-Diferenciais da empresa
+## 🚀 Funcionalidades Principais
 
-Serviços em destaque
+### 🌐 Navegação
+- Menu responsivo com efeito hover
+- Scroll suave entre seções
+- Indicador de progresso de scroll
+- Navegação por âncora
 
-Processo de trabalho
+### 📱 Responsividade
+- **Desktop**: Layout completo (1200px+)
+- **Tablet**: Grids adaptáveis (768px - 1199px)
+- **Mobile**: Design mobile-first (até 767px)
 
-Call-to-action estratégico
+### ✨ Animações
+- Fade-in nas seções
+- Hover effects em cards e botões
+- Transições suaves
+- Accordions interativos
 
-2. quem-somos.html - Sobre a Empresa
-Missão, visão e valores
+## 🔧 Características Técnicas
 
-Equipe técnica especializada
+### ✅ SEO Otimizado
+- Meta tags descritivas
+- Estrutura semântica HTML5
+- Títulos hierárquicos
+- Alt texts em imagens
 
-Histórico e experiência
+### ✅ Performance
+- CSS otimizado e minificado
+- Imagens comprimidas
+- Carregamento lazy (se necessário)
+- Fontes externas otimizadas
 
-Certificações e qualificações
+### ✅ Acessibilidade
+- Navegação por teclado
+- Contrastes de cores adequados
+- Labels descritivos
+- ARIA attributes quando necessário
 
-3. servicos.html - Catálogo de Serviços
-Licenciamento Ambiental
+## 📞 Integrações
 
-Estudos Espeleológicos
+### 🔗 Formulários
+- **Zoho Forms** integrado em `fale-conosco.html`
+- Formulário de contato responsivo
+- Validação nativa do navegador
 
-Estudos Complementares
+### 🔗 Redes Sociais
+- WhatsApp (2 números)
+- Instagram (@relevo.eco)
+- LinkedIn corporativo
+- E-mail institucional
 
-Planos de Manejo
+## 🎯 Páginas Específicas
 
-Educação Ambiental
+### 🏠 Home (`index.html`)
+- Apresentação institucional
+- Diferenciais competitivos
+- Processo de trabalho
+- Call-to-actions estratégicos
 
-4. reserva-tecnica.html - Especialidade Técnica
-Sobre a reserva técnica
+### 👥 Quem Somos (`quem-somos.html`)
+- Missão, Visão e Valores
+- Rede multidisciplinar
+- Especialidades da equipe
+- Cultura organizacional
 
-Legislação aplicável
+### 🔧 Serviços (`servicos.html`)
+- Menu interno de navegação
+- 6 categorias de serviços
+- Figuras técnicas
+- Especificações por serviço
 
-Notícias espeleológicas
+### 📚 Reserva Técnica (`reserva-tecnica.html`)
+- Legislação ambiental federal e estadual
+- Notícias espeleológicas atualizadas
+- Recursos para pesquisa
+- Base técnica especializada
 
-Conformidade legal
+### 📞 Fale Conosco (`fale-conosco.html`)
+- Múltiplos canais de contato
+- Formulário Zoho integrado
+- Política de privacidade
+- Redes sociais
 
-5. fale-conosco.html - Contato
-Formulário Zoho integrado
+### 🔐 Intranet (`intranet.html`)
+- Acesso ao portal interno
+- Recursos para colaboradores
+- Área restrita
 
-Contatos diretos dos diretores
+## 🌐 Deploy e Hospedagem
 
-Links para WhatsApp
+### 📦 Pré-requisitos
+- Servidor web (Apache, Nginx, etc.)
+- HTTPS recomendado
+- Suporte a HTML5/CSS3/ES6+
 
-Política de privacidade
-
-🛠 TECNOLOGIAS UTILIZADAS
-HTML5 - Estrutura semântica
-
-CSS3 - Estilos modernos com variáveis CSS
-
-JavaScript Vanilla - Interatividade
-
-Font Awesome - Ícones
-
-Google Fonts - Tipografia (Montserrat)
-
-Zoho Forms - Formulário de contato
-
-🎨 CARACTERÍSTICAS TÉCNICAS
-Design System
-css
-:root {
-  --primary-color: #26C04C;      /* Verde principal */
-  --primary-dark: #396B45;       /* Verde escuro */
-  --secondary-color: #EB8807;    /* Laranja */
-  --accent-dark: #2D4132;        /* Verde musgo */
-  --text-color: #444;            /* Texto principal */
+### 🔧 Configurações Recomendadas
+```nginx
+# Exemplo de configuração Nginx
+server {
+    listen 80;
+    server_name relevo.eco.br;
+    root /var/www/relevo-consultoria;
+    index index.html;
+    
+    # Configurações de cache para assets
+    location ~* \.(css|js|png|jpg|jpeg|gif|ico)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
 }
-Responsividade
-Desktop: > 992px
+```
 
-Tablet: 768px - 992px
+## 🔄 Manutenção e Atualizações
 
-Mobile: < 768px
+### 📝 Conteúdo Dinâmico
+- **Notícias**: Atualizar em `reserva-tecnica.html`
+- **Equipe**: Modificar em `quem-somos.html`
+- **Serviços**: Ajustar em `servicos.html`
+- **Legislação**: Revisar periodicamente
 
-Animações e UX
-Scroll suave nativo
+### 🛠 Desenvolvimento Futuro
+- [ ] Sistema de blog integrado
+- [ ] Galeria de projetos
+- [ ] Área do cliente
+- [ ] Integração com CRM
+- [ ] Chat online
 
-Animações com Intersection Observer
+## 👥 Equipe de Desenvolvimento
 
-Efeitos hover em cards
+**Relevo Consultoria Ambiental**
+- **Especialização**: Espeleologia e Licenciamento Ambiental
+- **Localização**: Brasília/DF
+- **Atuação**: Nacional
 
-Carrossel automático no hero
+## 📞 Suporte
 
-Loading states otimizados
+Para questões técnicas relacionadas ao site:
+- **E-mail**: contato@relevo.eco.br
+- **WhatsApp**: +55 (61) 98152-3078
+- **LinkedIn**: Relevo Consultoria Ambiental
 
-📱 RECURSOS RESPONSIVOS
-Menu hamburger mobile
+## 📄 Licença
 
-Grids adaptativos (3 → 2 → 1 colunas)
-
-Imagens otimizadas
-
-Touch-friendly buttons
-
-Textos escaláveis
-
-🔧 COMO PERSONALIZAR
-1. Cores da Marca
-Edite as variáveis CSS no :root de cada arquivo:
-
-css
-:root {
-  --primary-color: #SUA_COR_AQUI;
-  --primary-dark: #SUA_COR_ESCURA;
-}
-2. Conteúdo
-Textos: Edite diretamente no HTML
-
-Imagens: Substitua URLs no atributo src
-
-Links: Atualize hrefs conforme necessário
-
-3. Formulário de Contato
-O formulário usa Zoho Forms. Para modificar:
-
-Acesse sua conta Zoho
-
-Edite o formulário "SimpleContactUs"
-
-Atualize o ID no código embed
-
-4. Meta Tags SEO
-Modifique em cada <head>:
-
-html
-<meta name="description" content="Sua descrição">
-<meta name="keywords" content="suas, palavras, chave">
-🚀 COMO PUBLICAR NO GITHUB PAGES
-Passo a Passo:
-Crie um repositório no GitHub chamado relevo-consultoria
-
-Faça upload de todos os arquivos HTML
-
-Vá em Settings → Pages
-
-Selecione:
-
-Source: "Deploy from a branch"
-
-Branch: "main" (ou "master")
-
-Folder: "/ (root)"
-
-Salve e aguarde alguns minutos
-
-Acesse: https://seuusuario.github.io/relevo-consultoria
-
-📞 INTEGRAÇÕES
-WhatsApp Business
-html
-<a href="https://wa.me/5561981523078">(61) 98152-3078</a>
-Zoho Forms
-javascript
-// Embed automático com ajuste de altura
-Redes Sociais
-Instagram: @relevo.eco
-
-LinkedIn: /company/relevo-ambiental
-
-🐛 SOLUÇÃO DE PROBLEMAS COMUNS
-Imagens Não Carregam
-Verifique URLs no GitHub Raw
-
-Confirme permissões públicas
-
-Otimize tamanho das imagens
-
-Formulário Não Funciona
-Verifique conexão Zoho
-
-Confirme ID do formulário
-
-Teste em navegador diferente
-
-Menu Mobile Não Abre
-Confirme se o JavaScript está habilitado
-
-Verifique console por erros
-
-Teste em dispositivo real
-
-📝 COMO EDITAR ARQUIVOS
-Para textos simples:
-Abra o arquivo .html em um editor de texto
-
-Localize o texto entre tags como <p>, <h1>, <h2>
-
-Edite e salve
-
-Para imagens:
-Substitua a URL no src da imagem
-
-Mantenha a estrutura: <img src="URL_DA_IMAGEM" alt="descrição">
-
-Para links:
-Edite o href: <a href="NOVO_LINK">Texto</a>
-
-🔄 ATUALIZAÇÕES FUTURAS RECOMENDADAS
-Logo Real - Substituir texto por imagem
-
-Analytics - Google Analytics 4
-
-OTIMIZAÇÃO SEO - Meta tags avançadas
-
-FORMULÁRIO NATIVO - Substituir Zoho se necessário
-
-BLOG - Área de notícias e artigos
-
-📊 OTIMIZAÇÕES IMPLEMENTADAS
-✅ Site pronto para GitHub Pages
-
-✅ Código limpo e organizado
-
-✅ SEO básico implementado
-
-✅ Performance otimizada
-
-✅ Manutenção facilitada
-
-✅ Branding consistente
-
-👥 PARA NÃO-PROGRAMADORES
-Edições Seguras:
-✅ Textos entre tags HTML
-
-✅ URLs de imagens
-
-✅ Números de telefone
-
-✅ Endereços de email
-
-Evitar Modificar:
-❌ Estrutura HTML (div, section, class)
-
-❌ Código JavaScript
-
-❌ Estilos CSS complexos
-
-📄 LICENÇA
 © 2025 Relevo Consultoria Ambiental. Todos os direitos reservados.
 
-💡 Dica: Sempre teste as alterações localmente antes de fazer upload para o GitHub.
+---
 
-📞 Suporte: Para dúvidas técnicas, consulte a documentação das tecnologias ou procure um desenvolvedor web.
-
-🌐 Site Online: https://relevoambiental.github.io/relevo-consultoria/
-
-Última atualização: ${new Date().toLocaleDateString('pt-BR')}
+**Última atualização**: Outubro de 2025  
+**Versão do Site**: 1.0  
+**Status**: ✅ Produção
