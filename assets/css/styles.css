@@ -1,316 +1,686 @@
-/* ═══════════════════════════════════════════════════════════════
-   PATCHES DE CORREÇÃO PARA styles.css
-   
-   INSTRUÇÕES:
-   1. Adicione estas regras AO FINAL do arquivo styles.css existente
-   2. OU substitua as seções correspondentes se você quiser reescrever
-   3. Estas correções resolvem os problemas identificados na auditoria
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ===== CORREÇÃO 1: CARDS DIFERENCIAIS COM ALTURA UNIFORME ===== */
-
-#diferenciais .grid-3 {
-    align-items: stretch;
-    gap: 30px;
+/* ===== RESET E VARIÁVEIS GLOBAIS ===== */
+:root {
+    --primary-color: #26C04C;
+    --primary-dark: #396B45;
+    --secondary-color: #EB8807;
+    --accent-dark: #2D4132;
+    --accent-brown: #6B5539;
+    --accent-purple: #4E296B;
+    --light-color: #f8f9fa;
+    --dark-color: #333;
+    --text-color: #444;
+    --gray-light: #e9ecef;
+    --white: #ffffff;
+    --border-color: #dee2e6;
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.08);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.12);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
 }
 
-#diferenciais .card {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: 80px;
+    background-color: var(--white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--accent-dark);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+
+/* ===== TIPOGRAFIA ===== */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--accent-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; position: relative; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; }
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 30px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* ===== SEÇÕES ===== */
+section {
+    padding: 80px 0;
+}
+
+.section-light {
+    background-color: var(--light-color);
+}
+
+.section-dark {
+    background-color: var(--accent-dark);
+    color: white;
+}
+
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+    color: white;
+}
+
+/* ===== CARDS ===== */
+/* ===== CARDS ===== */
+.card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    overflow: hidden;
+    height: 100%; /* NOVA LINHA - Garante mesma altura */
+    display: flex; /* NOVA LINHA */
+    flex-direction: column; /* NOVA LINHA */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.card-img {
+    width: 100%;
+    height: 200px; /* Já existe - mantém altura fixa */
+    object-fit: cover;
+    flex-shrink: 0; /* NOVA LINHA - Impede redimensionamento */
+}
+
+.card-content {
+    padding: 25px;
+    flex-grow: 1; /* NOVA LINHA - Ocupa espaço restante */
+    display: flex; /* NOVA LINHA */
+    flex-direction: column; /* NOVA LINHA */
+}
+
+/* NOVAS REGRAS - Adicione após o .card-content existente */
+#diferenciais .card-content {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-#diferenciais .card-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-}
-
-#diferenciais .diferencial-icon {
+.diferencial-icon {
     width: 80px;
     height: 80px;
     margin: 0 auto 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    order: 1;
 }
 
-#diferenciais .diferencial-icon img {
+.diferencial-icon img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
-#diferenciais .card-img {
-    height: 220px;
-    width: 100%;
-    object-fit: cover;
-    flex-shrink: 0;
-    order: 2;
-}
-
-#diferenciais h3 {
-    order: 3;
-    margin: 20px 0 15px 0;
-}
-
 #diferenciais .card-content p {
-    order: 4;
     flex-grow: 1;
-    margin-bottom: 0;
+    margin-bottom: 20px;
+}
 }
 
-/* ===== CORREÇÃO 2: NAVEGAÇÃO DE SERVIÇOS MAIS ACESSÍVEL ===== */
+/* ===== GRIDS ===== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
 
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.grid-5 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* ===== HERO SECTIONS ===== */
+.hero-quem-somos,
+.hero-reserva-tecnica,
+.hero-contato,
+.hero-servicos {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 80px;
+}
+
+.hero-quem-somos { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../img/quem-somos/quem-somos.jpg'); }
+.hero-reserva-tecnica { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../img/reserva-tecnica/f609525176.jpg'); }
+.hero-contato { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../img/contato/Hero_Contato_Sem_Texto.png'); }
+.hero-servicos { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../img/servicos/Estudos.jpg'); }
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===== NAVEGAÇÃO DE SERVIÇOS ===== */
 .servicos-nav {
     background: var(--light-color);
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     position: sticky;
     top: 80px;
     z-index: 999;
-    border-bottom: 2px solid var(--border-color);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .servicos-nav-container {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
     overflow-x: auto;
     padding: 0.5rem 0;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) var(--light-color);
-}
-
-.servicos-nav-container::-webkit-scrollbar {
-    height: 6px;
-}
-
-.servicos-nav-container::-webkit-scrollbar-track {
-    background: var(--light-color);
-}
-
-.servicos-nav-container::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 3px;
 }
 
 .servico-nav-link {
     color: var(--dark-color);
     text-decoration: none;
     font-weight: 500;
-    padding: 0.8rem 1.5rem; /* AUMENTADO */
-    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
     transition: var(--transition);
     white-space: nowrap;
-    font-size: 0.95rem; /* AUMENTADO */
-    border: 2px solid var(--border-color);
+    font-size: 0.85rem;
+    border: 1.5px solid var(--border-color);
     background: white;
     flex-shrink: 0;
-    min-height: 44px; /* Altura mínima acessível */
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.servico-nav-link:hover,
-.servico-nav-link:focus {
+.servico-nav-link:hover {
     background: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(38, 192, 76, 0.3);
+    transform: translateY(-1px);
 }
 
-.servico-nav-link:active {
-    transform: translateY(0);
+/* ===== SERVIÇOS ===== */
+.servico-section {
+    padding: 4rem 0;
+    scroll-margin-top: 140px;
 }
 
-/* ===== CORREÇÃO 3: IMAGENS DE SERVIÇOS TAMANHO CORRETO ===== */
+.servico-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
 
+.servico-icon {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.servico-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* CORREÇÃO: Imagens dos serviços voltar ao tamanho original */
 .servico-imagem {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-light);
     transition: var(--transition);
-    height: 100%;
 }
 
 .servico-imagem img {
     width: 100%;
-    height: 300px; /* Tamanho fixo e adequado */
+    height: 250px; /* Tamanho original */
     object-fit: cover;
-    transition: var(--transition);
 }
 
 .servico-imagem:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
 }
 
-.servico-imagem:hover img {
-    transform: scale(1.05);
+.figura-tecnica img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* ===== CORREÇÃO 4: FIGURA TÉCNICA PADRONIZADA ===== */
-
-.figura-tecnica {
-    border-radius: var(--border-radius);
-    overflow: hidden;
+.servico-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
     background: var(--light-color);
-    padding: 10px;
-    height: 100%;
+    border-radius: 12px;
+}
+
+.servico-lista {
+    list-style: none;
+    padding: 0;
+}
+
+.servico-lista li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.servico-lista i {
+    color: var(--primary-color);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+/* ===== QUEM SOMOS ===== */
+.mvv-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.figura-tecnica img {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
+.mvv-icon img {
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    border-radius: 4px;
 }
 
-/* ===== CORREÇÃO 5: CARDS DE SERVIÇOS DETALHES ===== */
-
-.servico-detail {
-    height: 100%;
+.valores-list {
+    text-align: left;
 }
 
-.servico-detail .card-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.valor-item {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--gray-light);
 }
 
-.servico-detail h4 {
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-color);
+.valor-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.valor-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.servico-detail h4 i {
-    color: var(--primary-color);
+.valor-item h4 i {
+    width: 20px;
+    text-align: center;
 }
 
-.metodologia-lista {
-    list-style: none;
-    counter-reset: metodologia-counter;
-    padding-left: 0;
+.valor-item p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin: 0;
 }
 
-.metodologia-lista li {
-    counter-increment: metodologia-counter;
-    margin-bottom: 0.8rem;
-    padding-left: 2rem;
-    position: relative;
-    line-height: 1.5;
+/* CORREÇÃO: Rede Multidisciplinar não encavalada */
+#equipe .grid-4 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
-.metodologia-lista li::before {
-    content: counter(metodologia-counter);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 24px;
-    height: 24px;
+#equipe .card:last-child {
+    margin-top: 2rem;
+}
+
+.equipe-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 4px solid var(--primary-color);
+}
+
+.equipe-contato {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.especialidade-icon {
+    width: 60px;
+    height: 60px;
     background: var(--primary-color);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-/* ===== CORREÇÃO 6: RESPONSIVIDADE APRIMORADA ===== */
-
-@media (max-width: 992px) {
-    .servico-nav-link {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.85rem;
-        min-height: 40px;
-    }
-    
-    .servico-imagem img {
-        height: 250px;
-    }
-}
-
-@media (max-width: 768px) {
-    .servicos-nav {
-        top: 70px;
-        padding: 0.8rem 0;
-    }
-    
-    .servicos-nav-container {
-        gap: 0.5rem;
-    }
-    
-    .servico-nav-link {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-        min-height: 38px;
-    }
-    
-    .servico-imagem img {
-        height: 200px;
-    }
-    
-    .figura-tecnica img {
-        max-height: 150px;
-    }
-    
-    #diferenciais .card-img {
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .servico-nav-link {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.8rem;
-        min-height: 36px;
-    }
-    
-    .servico-imagem img {
-        height: 180px;
-    }
-}
-
-/* ===== CORREÇÃO 7: MENU MOBILE (garantir funcionalidade) ===== */
-
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
+    margin: 0 auto 15px;
     font-size: 1.5rem;
-    color: var(--accent-dark);
-    cursor: pointer;
-    padding: 10px;
+}
+
+/* ===== PROCESSO TIMELINE ===== */
+.processo-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--white);
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
     transition: var(--transition);
 }
 
-.mobile-menu-btn:hover {
-    color: var(--primary-color);
+.processo-etapa:hover .processo-icon {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
 }
 
-.mobile-menu-btn:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--accent-dark);
+    color: white;
+    padding: 60px 0 30px;
 }
 
+.footer-callout {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--border-radius);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+.footer-column h4 {
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.footer-links i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* ===== ANIMAÇÕES ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== UTILITÁRIOS ===== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 992px) {
-    .mobile-menu-btn {
-        display: block;
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.6rem; }
+    
+    .grid-3, .grid-4, .grid-5 {
+        grid-template-columns: repeat(2, 1fr);
     }
     
     nav ul {
@@ -324,76 +694,52 @@
         box-shadow: var(--shadow-medium);
         padding: 20px;
         gap: 15px;
-        border-top: 3px solid var(--primary-color);
-        animation: slideDown 0.3s ease;
     }
     
-    nav ul.active {
-        display: flex;
-    }
+    nav ul.active { display: flex; }
+    .mobile-menu-btn { display: block; }
     
-    nav ul li {
-        width: 100%;
+    .servico-header { flex-direction: column; text-align: center; }
+    .hero-quem-somos, .hero-reserva-tecnica, .hero-contato, .hero-servicos {
+        height: 50vh; min-height: 400px; margin-top: 70px;
     }
-    
-    nav a {
-        display: block;
-        padding: 12px 16px;
-        border-radius: var(--border-radius);
-        transition: var(--transition);
-    }
-    
-    nav a:hover {
-        background: var(--light-color);
-    }
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== CORREÇÃO 8: ACESSIBILIDADE E FOCO ===== */
-
-*:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-.btn:focus-visible {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 3px;
-}
-
-/* Links externos com indicador visual */
-a[target="_blank"]:not(.btn)::after {
-    content: " ↗";
-    font-size: 0.8em;
-    vertical-align: super;
-}
-
-/* ===== CORREÇÃO 9: FORMULÁRIO ZOHO RESPONSIVO ===== */
-/* Estas regras devem ser adicionadas em fale-conosco.html no <style> */
-
-.formulario-container {
-    width: 100%;
-    min-height: 800px;
-    height: auto;
-    border: none;
-    border-radius: var(--border-radius);
-    overflow: auto;
 }
 
 @media (max-width: 768px) {
-    .formulario-container {
-        min-height: 600px;
-    }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.4rem; }
+    
+    .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
+    .footer-content { flex-direction: column; gap: 30px; }
+    .footer-column { min-width: 100%; }
+    body { padding-top: 70px; }
+    
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .hero-description { font-size: 1rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    
+    .servicos-nav-container { gap: 0.5rem; }
+    .servico-nav-link { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+    
+    .equipe-foto { width: 120px; height: 120px; }
+    .mvv-icon { width: 100px; height: 100px; }
 }
 
-/* ===== FIM DOS PATCHES ===== */
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .btn { width: 100%; justify-content: center; }
+    
+    .hero-quem-somos, .hero-reserva-tecnica, .hero-contato, .hero-servicos {
+        height: 40vh; min-height: 350px; margin-top: 70px;
+    }
+    
+    .hero-content h1 { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    
+    .servicos-nav-container { gap: 0.3rem; }
+    .servico-nav-link { font-size: 0.75rem; padding: 0.3rem 0.6rem; }
+}
