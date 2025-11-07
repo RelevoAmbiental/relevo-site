@@ -71,13 +71,7 @@ function playCarrossel(swiper) {
     }
 }
 
-// Inicializar quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', function() {
-    const carrossel = document.querySelector('.hero-carrossel');
-    if (carrossel) {
-        initCarrossel();
-    }
-});
+// A inicialização do carrossel agora é feita no script.js para garantir a ordem correta de execução.
 
 // Exportar para uso global
 window.Carrossel = {
