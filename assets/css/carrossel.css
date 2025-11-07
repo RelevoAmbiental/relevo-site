@@ -1,124 +1,316 @@
-/* ===== CARROSSEL SWIPER ===== */
-.hero-carrossel {
-    position: relative;
-    height: 100vh;
-    color: white;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    margin-top: -80px;
-}
-
-.swiper {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.swiper-slide {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-    z-index: 2;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 3;
-}
-
-.hero-content h1 {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.hero-subtitle {
-    font-size: 1.4rem;
-    margin-bottom: 2.5rem;
-    font-weight: 500;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-.hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    font-style: italic;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* Swiper Navigation */
-.swiper-button-next,
-.swiper-button-prev {
-    color: white;
-    background: rgba(255,255,255,0.2);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    backdrop-filter: blur(10px);
-}
-
-.swiper-button-next:after,
-.swiper-button-prev:after {
-    font-size: 1.2rem;
-}
-
-.swiper-pagination-bullet {
-    background: white;
-    opacity: 0.5;
-    width: 12px;
-    height: 12px;
-}
-
-.swiper-pagination-bullet-active {
-    background: var(--primary-color);
-    opacity: 1;
-}
-
-@media (max-width: 768px) {
-    .hero-carrossel {
-        height: 70vh;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relevo Consultoria Ambiental - Expertise em Espeleologia e Licenciamento</title>
+    <meta name="description" content="Consultoria ambiental especializada em espeleologia e licenciamento. Protegemos cavernas e viabilizamos empreendimentos com diagnósticos técnicos precisos.">
+    <meta name="keywords" content="consultoria ambiental, espeleologia, licenciamento ambiental, estudos espeleológicos, cavernas, sustentabilidade">
     
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
+    <!-- Open Graph -->
+    <meta property="og:title" content="Relevo Consultoria Ambiental">
+    <meta property="og:description" content="Expertise em espeleologia e licenciamento ambiental. Protegemos cavernas e viabilizamos empreendimentos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://relevoambiental.github.io/relevo-consultoria/">
     
-    .swiper-button-next,
-    .swiper-button-prev {
-        display: none;
-    }
-}
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/carrossel.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/icons/Logo_atualizada_horizontal.png" alt="Relevo Consultoria Ambiental" class="logo-img" onerror="this.style.display='none'">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="quem-somos.html">Quem Somos</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="reserva-tecnica.html">Reserva Técnica</a></li>
+                    <li><a href="fale-conosco.html">Contato</a></li>
+                    <li><a href="intranet.html">Intranet</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section com Carrossel -->
+    <section class="hero-carrossel" id="home">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- COMENTÁRIO DE MANUTENÇÃO: Para adicionar ou remover slides, duplique ou remova o bloco 'swiper-slide' abaixo.
+                    Certifique-se de que a imagem (src) e o texto alternativo (alt) estejam corretos.
+                    As imagens devem estar no diretório 'assets/img/hero/'.
+                    O CSS (carrossel.css) foi ajustado para cortar a imagem e manter a altura reduzida. -->
+                <div class="swiper-slide">
+                    <img src="assets/img/hero/carrossel-1.JPG" alt="Equipe Relevo em trabalho de campo" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/hero/carrossel-2.jpg" alt="Estudos espeleológicos em caverna" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/hero/carrossel-3.JPG" alt="Mapeamento de caverna" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/hero/carrossel-4.JPG" alt="Trabalho técnico especializado" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/hero/carrossel-5.jpg" alt="Consultoria ambiental" loading="lazy">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Relevo Consultoria Ambiental</h1>
+                <p class="hero-subtitle">Expertise em Espeleologia e Licenciamento</p>
+                <p class="hero-description">Protegemos cavernas e viabilizamos empreendimentos: diagnóstico técnico, licenciamento robusto e planos de manejo.</p>
+                <div class="hero-buttons">
+                    <a href="fale-conosco.html" class="btn btn-primary">
+                        <i class="fas fa-bolt"></i>
+                        Solicitar Diagnóstico Rápido
+                    </a>
+                    <a href="#servicos" class="btn btn-secondary">
+                        <i class="fas fa-search"></i>
+                        Ver Serviços
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <!-- COMENTÁRIO DE MANUTENÇÃO: Para atualizar os diferenciais, edite o conteúdo dentro de cada bloco 'card fade-in'.
+    As imagens de ícone estão em 'assets/icons/' e as imagens de fundo em 'assets/img/servicos/' ou 'assets/img/equipe/'. -->
+    <section class="section-light" id="diferenciais">
+        <div class="container">
+            <h2 class="fade-in">Nossos Diferenciais</h2>
+            <div class="grid-3" data-animate-children="true">
+                <div class="card fade-in">
+                    <div class="card-content text-center">
+                        <div class="diferencial-icon">
+                            <img src="assets/icons/Caverna.png" alt="Especialização em Espeleologia" loading="lazy">
+                        </div>
+                        <img src="assets/img/servicos/TimePhoto_20240715_112924.jpg" alt="Equipe realizando trabalho espeleológico" class="card-img" loading="lazy">
+                        <h3>Especialização em Espeleologia</h3>
+                        <p>Mapeamento, Técnicas verticais, Monitoramento, Educação ambiental com expertise comprovada.</p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content text-center">
+                        <div class="diferencial-icon">
+                            <img src="assets/icons/multidisciplinar.png" alt="Equipe Multidisciplinar" loading="lazy">
+                        </div>
+                        <img src="assets/img/equipe/TimePhoto_20241024_160102.jpg" alt="Equipe multidisciplinar em reunião" class="card-img" loading="lazy">
+                        <h3>Equipe Multidisciplinar</h3>
+                        <p>Geólogos, biólogos, arqueólogos e outros especialistas disponíveis conforme necessidade do projeto.</p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content text-center">
+                        <div class="diferencial-icon">
+                            <img src="assets/icons/SegurancaJuridica.png" alt="Segurança Jurídica" loading="lazy">
+                        </div>
+                        <img src="assets/img/servicos/crimes-ambientais.jpg" alt="Documentação e conformidade" class="card-img" loading="lazy">
+                        <h3>Segurança Jurídica</h3>
+                        <p>Entregáveis com conformidade legal e implementação eficaz de condicionantes ambientais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <!-- COMENTÁRIO DE MANUTENÇÃO: Para atualizar os serviços em destaque, edite o conteúdo dentro de cada bloco 'card fade-in'.
+    As imagens de capa estão em 'assets/img/servicos/'. -->
+    <section id="servicos">
+        <div class="container">
+            <h2 class="fade-in">Nossos Serviços</h2>
+            <div class="grid-3" data-animate-children="true">
+                <div class="card fade-in">
+                    <img src="assets/img/servicos/licenciamento.jpg" alt="Licenciamento Ambiental" class="card-img" loading="lazy">
+                    <div class="card-content">
+                        <h3>Licenciamento Ambiental</h3>
+                        <p>Processo completo de licenciamento para diversos setores, garantindo conformidade com a legislação.</p>
+                        <a href="servicos.html#licenciamento" class="btn btn-secondary btn-small">
+                            Saiba mais
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <img src="assets/img/servicos/Estudos.jpg" alt="Estudos Espeleológicos" class="card-img" loading="lazy">
+                    <div class="card-content">
+                        <h3>Estudos Espeleológicos</h3>
+                        <p>Diagnóstico, caracterização e mapeamento de cavernas com tecnologia de ponta e metodologia científica.</p>
+                        <a href="servicos.html#espeleologia" class="btn btn-secondary btn-small">
+                            Saiba mais
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <img src="assets/img/servicos/vibracao.jpg" alt="Estudos Complementares" class="card-img" loading="lazy">
+                    <div class="card-content">
+                        <h3>Estudos Complementares</h3>
+                        <p>Inventários de fauna, flora, estudos arqueológicos e outros diagnósticos ambientais especializados.</p>
+                        <a href="servicos.html#complementares" class="btn btn-secondary btn-small">
+                            Saiba mais
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-3">
+                <a href="servicos.html" class="btn btn-primary">
+                    <i class="fas fa-list"></i>
+                    Ver Todos os Serviços
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processo -->
+    <!-- COMENTÁRIO DE MANUTENÇÃO: Para alterar as etapas do processo, edite o conteúdo dentro de cada bloco 'processo-etapa'.
+    Os ícones são do Font Awesome (fas fa-nome-do-icone). -->
+    <section class="section-light" id="processo">
+        <div class="container">
+            <h2 class="fade-in">Nosso Processo</h2>
+            <div class="grid-5" data-animate-children="true">
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Levantamento</h3>
+                    <p>Análise preliminar e planejamento estratégico</p>
+                </div>
+                
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Campo</h3>
+                    <p>Coleta de dados e amostras técnicas</p>
+                </div>
+                
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Análises</h3>
+                    <p>Processamento e interpretação de dados</p>
+                </div>
+                
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Relatório</h3>
+                    <p>Elaboração de documentos técnicos</p>
+                </div>
+                
+                <div class="processo-etapa text-center fade-in">
+                    <div class="processo-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Acompanhamento</h3>
+                    <p>Implementação de condicionantes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato">
+        <div class="container">
+            <!-- COMENTÁRIO DE MANUTENÇÃO: Para alterar o link de orçamento no rodapé, edite o atributo 'href' do botão 'Solicitar Orçamento'. -->
+            <div class="footer-callout fade-in">
+                <h3>Precisa de mobilização rápida?</h3>
+                <p>Verifique nossa disponibilidade (standby)</p>
+                <a href="https://forms.zohopublic.com/samuelrel1/form/SimpleContactUs/formperma/bGgpYO_ZnuoTwk8WREkAKi3LWvwfE5DAbZEgFqZd0pY" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-bolt"></i>
+                    Solicitar Orçamento
+                </a>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Relevo Consultoria</h4>
+                    <p>Expertise em espeleologia e licenciamento ambiental. Protegemos cavernas e viabilizamos empreendimentos sustentáveis.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="servicos.html#licenciamento">Licenciamento Ambiental</a></li>
+                        <li><a href="servicos.html#espeleologia">Estudos Espeleológicos</a></li>
+                        <li><a href="servicos.html#complementares">Estudos Complementares</a></li>
+                        <li><a href="servicos.html#plano-manejo">Planos de Manejo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="https://wa.me/5561981523078" target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp"></i> +55 (61) 98152-3078
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/5561982926996" target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp"></i> +55 (61) 98292-6996
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:contato@relevo.eco.br">
+                                <i class="fas fa-envelope"></i> contato@relevo.eco.br
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/relevo.eco" target="_blank" rel="noopener">
+                                <i class="fab fa-instagram"></i> @relevo.eco
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/103590367/admin/dashboard/" target="_blank" rel="noopener">
+                                <i class="fab fa-linkedin"></i> Relevo Ambiental
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i> Brasília/DF
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Relevo Consultoria Ambiental. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/carrossel.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
