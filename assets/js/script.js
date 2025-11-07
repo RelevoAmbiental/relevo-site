@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initHeaderScroll();
     setActiveNavLink();
+    // COMENTÁRIO DE MANUTENÇÃO: Inicializa o carrossel da home.
+    // A função initCarrossel está definida em assets/js/carrossel.js
+    if (typeof initCarrossel === 'function') {
+        initCarrossel();
+    }
 });
 
 // ===== MENU MOBILE =====
