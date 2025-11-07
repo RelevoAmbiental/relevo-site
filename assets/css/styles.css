@@ -109,6 +109,12 @@ nav a.active::after {
 
 .mobile-menu-btn {
     display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--accent-dark);
+    padding: 10px;
 }
 
 /* ===== TIPOGRAFIA ===== */
@@ -706,6 +712,55 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .header-container {
+        padding: 10px 0;
+    }
+
+    nav {
+        /* Esconde o menu por padrão no mobile */
+        display: none;
+        position: absolute;
+        top: 80px; /* Altura do header */
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: var(--shadow-medium);
+        z-index: 999;
+        padding: 10px 0;
+    }
+
+    nav.active {
+        display: block; /* Mostra o menu quando a classe 'active' é adicionada pelo JS */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        border-bottom: 1px solid var(--gray-light);
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav a {
+        display: block;
+        padding: 15px 20px;
+        text-align: left;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+        width: 0; /* Remove o sublinhado no menu mobile */
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2rem; }
     h3 { font-size: 1.4rem; }
