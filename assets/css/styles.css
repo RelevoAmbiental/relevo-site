@@ -833,3 +833,63 @@ footer {
     .servicos-nav-container { gap: 0.3rem; }
     .servico-nav-link { font-size: 0.75rem; padding: 0.3rem 0.6rem; }
 }
+/* ===== CORREÇÕES ESPECÍFICAS ===== */
+
+/* Correção para menu de serviços não sobrepor menu principal */
+.servicos-nav {
+    z-index: 998; /* Menor que o menu principal (1000) e maior que conteúdo (1) */
+}
+
+/* Correção para overflow horizontal na página reserva-tecnica */
+.legislation-grid,
+.news-grid {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Garantir que containers não causem overflow */
+.container {
+    overflow: hidden;
+}
+
+/* Correção específica para grids da reserva técnica */
+@media (max-width: 768px) {
+    .legislation-grid,
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .legislation-card,
+    .news-card {
+        min-width: 0; /* Permite que os cards encolham */
+    }
+}
+
+/* Garantir que imagens não causem overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Correção para garantir que o header principal sempre fique no topo */
+header {
+    z-index: 1000 !important; /* Força o header principal acima de tudo */
+}
+
+/* Correção para menu mobile não afetar outros elementos */
+@media (max-width: 768px) {
+    nav {
+        z-index: 1000; /* Menu mobile acima do conteúdo */
+    }
+    
+    .nav-overlay {
+        z-index: 999; /* Overlay abaixo do menu mas acima do conteúdo */
+    }
+    
+    /* Garantir que menu de serviços fique abaixo do menu mobile */
+    .servicos-nav {
+        z-index: 800; /* Abaixo do menu mobile */
+        position: relative; /* Remove sticky no mobile se necessário */
+    }
+}
