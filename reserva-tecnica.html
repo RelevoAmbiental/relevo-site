@@ -262,6 +262,36 @@
                 padding: 20px;
             }
         }
+            /* CORREÇÕES ESPECÍFICAS PARA RESERVA TÉCNICA */
+    @media (max-width: 768px) {
+        /* Garantir que não haja overflow horizontal */
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Corrigir grids que podem estar causando overflow */
+        .legislation-grid {
+            grid-template-columns: 1fr !important;
+        }
+        
+        .news-grid {
+            grid-template-columns: 1fr !important;
+        }
+        
+        /* Garantir que cards não ultrapassem a tela */
+        .legislation-card,
+        .news-card {
+            max-width: 100%;
+            margin: 0 10px;
+        }
+        
+        /* Corrigir possíveis problemas de padding/margin */
+        .container {
+            padding: 0 15px;
+            max-width: 100%;
+        }
+    }
     </style>
 </head>
 <body>
