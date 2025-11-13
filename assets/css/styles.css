@@ -893,3 +893,68 @@ header {
         position: relative; /* Remove sticky no mobile se necessário */
     }
 }
+/* ===== CORREÇÃO ESPECÍFICA PARA MENU INTERNO DE SERVIÇOS ===== */
+@media (max-width: 768px) {
+    .servicos-nav-container {
+        max-width: 100vw; /* Limita à largura da tela */
+        margin: 0 auto;
+        padding: 0 15px; /* Adiciona padding lateral */
+    }
+    
+    .servico-nav-link {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    /* Garantir que o menu de serviços não fique muito largo */
+    .servicos-nav {
+        position: sticky;
+        top: 70px; /* Abaixo do header */
+        z-index: 800;
+        background: var(--light-color);
+        border-bottom: 1px solid var(--border-color);
+        padding: 0.5rem 0;
+    }
+    
+    /* Container para limitar a largura */
+    .servicos-nav .container {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+}
+
+/* Correção adicional para telas muito pequenas */
+@media (max-width: 480px) {
+    .servicos-nav-container {
+        gap: 0.3rem;
+        padding: 0 10px;
+    }
+    
+    .servico-nav-link {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    /* Se ainda estiver muito largo, força quebra de linha */
+    .servicos-nav-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .servico-nav-link {
+        flex: 0 0 auto;
+        margin-bottom: 0.3rem;
+    }
+}
+
+/* Garantir que o scroll horizontal funcione corretamente */
+.servicos-nav-container {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.servicos-nav-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
