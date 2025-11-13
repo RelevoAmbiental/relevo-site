@@ -32,52 +32,48 @@ function initMenu() {
     if (mobileMenuBtn && mainMenu) {
         mobileMenuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            const isOpening = !mainMenu.classList.contains('active');
+            
             mainMenu.classList.toggle('active');
             navOverlay.classList.toggle('active');
-            document.body.style.overflow = mainMenu.classList.contains('active') ? 'hidden' : '';
+            document.body.style.overflow = isOpening ? 'hidden' : '';
             
             // Atualizar atributo ARIA
-            mobileMenuBtn.setAttribute('aria-expanded', 
-                mainMenu.classList.contains('active'));
+            mobileMenuBtn.setAttribute('aria-expanded', isOpening);
         });
 
         // Fechar menu ao clicar em um link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
-                mainMenu.classList.remove('active');
-                navOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                closeMobileMenu();
             });
         });
 
         // Fechar menu ao clicar no overlay
         navOverlay.addEventListener('click', () => {
-            mainMenu.classList.remove('active');
-            navOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            closeMobileMenu();
         });
 
         // Fechar menu ao redimensionar para desktop
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
-                mainMenu.classList.remove('active');
-                navOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                closeMobileMenu();
             }
         });
 
         // Fechar menu com tecla ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && mainMenu.classList.contains('active')) {
-                mainMenu.classList.remove('active');
-                navOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                closeMobileMenu();
             }
         });
+
+        function closeMobileMenu() {
+            mainMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
     }
 }
 
