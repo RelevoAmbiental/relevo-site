@@ -11,6 +11,8 @@ function initCarrossel() {
         },
         speed: 1000,
         effect: 'fade',
+        observer: true,
+        observeParents: true,
         fadeEffect: {
             crossFade: true
         },
@@ -59,3 +61,4 @@ window.Carrossel = {
     pause: pauseCarrossel,
     play: playCarrossel
 };
+
