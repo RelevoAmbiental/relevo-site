@@ -1,11 +1,7 @@
 // ===== INICIALIZAÇÃO DO CARROSSEL =====
 function initCarrossel() {
     // Verificar se o Swiper está disponível
-    if (typeof Swiper === 'undefined') {
-        console.warn('Swiper não carregado. Carregando dinamicamente...');
-        loadSwiper();
-        return;
-    }
+    // A verificação de carregamento dinâmico foi removida, pois o Swiper é carregado via CDN no index.html.
     
     const swiper = new Swiper('.mySwiper', {
         loop: true,
@@ -40,23 +36,7 @@ function initCarrossel() {
     return swiper;
 }
 
-// ===== CARREGAMENTO DINÂMICO DO SWIPER =====
-function loadSwiper() {
-    // Carregar CSS do Swiper
-    const swiperCSS = document.createElement('link');
-    swiperCSS.rel = 'stylesheet';
-    swiperCSS.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
-    document.head.appendChild(swiperCSS);
-    
-    // Carregar JS do Swiper
-    const swiperJS = document.createElement('script');
-    swiperJS.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-    swiperJS.onload = function() {
-        console.log('Swiper carregado dinamicamente');
-        initCarrossel();
-    };
-    document.head.appendChild(swiperJS);
-}
+// O carregamento dinâmico do Swiper foi removido, pois o Swiper é carregado via CDN no index.html.
 
 // ===== CONTROLES DO CARROSSEL =====
 function pauseCarrossel(swiper) {
